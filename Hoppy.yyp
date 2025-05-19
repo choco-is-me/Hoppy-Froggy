@@ -48,6 +48,8 @@
     {"id":{"name":"obj_normal_platform","path":"objects/obj_normal_platform/obj_normal_platform.yy",},},
     {"id":{"name":"obj_platform","path":"objects/obj_platform/obj_platform.yy",},},
     {"id":{"name":"dev_room","path":"rooms/dev_room/dev_room.yy",},},
+    {"id":{"name":"spr_arrow","path":"sprites/spr_arrow/spr_arrow.yy",},},
+    {"id":{"name":"spr_charge_bar","path":"sprites/spr_charge_bar/spr_charge_bar.yy",},},
     {"id":{"name":"spr_decaying_platform","path":"sprites/spr_decaying_platform/spr_decaying_platform.yy",},},
     {"id":{"name":"spr_frog_idle_body","path":"sprites/spr_frog_idle_body/spr_frog_idle_body.yy",},},
     {"id":{"name":"spr_frog_idle_head","path":"sprites/spr_frog_idle_head/spr_frog_idle_head.yy",},},
