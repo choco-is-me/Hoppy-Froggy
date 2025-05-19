@@ -1,0 +1,1 @@
+image_speed = 1; // Animation speed, adjust as needed
