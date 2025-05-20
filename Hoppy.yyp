@@ -74,7 +74,6 @@
     {"id":{"name":"spr_charge_bar","path":"sprites/spr_charge_bar/spr_charge_bar.yy",},},
     {"id":{"name":"spr_decaying_platform_16_32","path":"sprites/spr_decaying_platform_16_32/spr_decaying_platform_16_32.yy",},},
     {"id":{"name":"spr_decaying_platform_16_48","path":"sprites/spr_decaying_platform_16_48/spr_decaying_platform_16_48.yy",},},
-    {"id":{"name":"spr_decaying_platform","path":"sprites/spr_decaying_platform/spr_decaying_platform.yy",},},
     {"id":{"name":"spr_forest_background","path":"sprites/spr_forest_background/spr_forest_background.yy",},},
     {"id":{"name":"spr_forest_tileset","path":"sprites/spr_forest_tileset/spr_forest_tileset.yy",},},
     {"id":{"name":"spr_frog_attack_body","path":"sprites/spr_frog_attack_body/spr_frog_attack_body.yy",},},
