@@ -3,8 +3,7 @@ var head_offset = -6; // Default for 7px height sprites (idle, hop)
 if (state == "Charging" && current_body_sprite == spr_frog_prehop_body) {
     // Assuming spr_frog_prehop_body might be shorter (e.g., 5px as per original comment)
     // Adjust this value based on your actual sprite heights for prehop
-    // If prehop body sprite height is different and makes head appear detached:
-    // head_offset = -4; // Example for a 5px tall pre-hop body
+    head_offset = -4;
 } else if (current_body_sprite == spr_frog_idle_body || current_body_sprite == spr_frog_hop_body) {
     head_offset = -6; // For 7px height sprites
 }
