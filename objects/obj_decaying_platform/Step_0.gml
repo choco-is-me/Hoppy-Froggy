@@ -1,12 +1,23 @@
 if (place_meeting(x, y - 1, obj_frog)) {
     stand_timer += 1;
+    
+    // Visual feedback as platform is about to break
+    alpha = 1 - (stand_timer / break_time) * 0.3;
+    
     if (stand_timer >= break_time) {
-        breaking = true;
+        // Create the non-solid version at the same position
+        var new_platform = instance_create_layer(x, y, layer, obj_decaying_platform_nonsolid);
+        // Transfer the sprite and other properties if needed
+        new_platform.sprite_index = sprite_index;
+        new_platform.image_index = image_index;
+        new_platform.image_xscale = image_xscale;
+        new_platform.image_yscale = image_yscale;
+        new_platform.image_angle = image_angle;
+        
+        // Destroy this instance
+        instance_destroy();
     }
 } else {
     stand_timer = 0;
-}
-
-if (breaking) {
-    instance_destroy();
+    alpha = 1;
 }

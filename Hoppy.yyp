@@ -48,6 +48,7 @@
   "name":"Hoppy",
   "resources":[
     {"id":{"name":"ani_frog_idle","path":"animcurves/ani_frog_idle/ani_frog_idle.yy",},},
+    {"id":{"name":"obj_decaying_platform_nonsolid","path":"objects/obj_decaying_platform_nonsolid/obj_decaying_platform_nonsolid.yy",},},
     {"id":{"name":"obj_decaying_platform","path":"objects/obj_decaying_platform/obj_decaying_platform.yy",},},
     {"id":{"name":"obj_frog","path":"objects/obj_frog/obj_frog.yy",},},
     {"id":{"name":"obj_normal_platform","path":"objects/obj_normal_platform/obj_normal_platform.yy",},},
