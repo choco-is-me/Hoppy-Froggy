@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"1fac5f97-506e-4dfc-82d8-5ca5fcde6caa","name":"1fac5f97-506e-4dfc-82d8-5ca5fcde6caa","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"e0f423cd-b13c-4f39-b885-948b1c611f54","name":"e0f423cd-b13c-4f39-b885-948b1c611f54","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":10,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"adee07ad-e6aa-4be0-a29d-9e998d315a2c","blendMode":0,"displayName":"default","isLocked":false,"name":"adee07ad-e6aa-4be0-a29d-9e998d315a2c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"f7e0cddd-1d3a-4fd4-926f-f33c7bf4162b","blendMode":0,"displayName":"default","isLocked":false,"name":"f7e0cddd-1d3a-4fd4-926f-f33c7bf4162b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_frog_hop_head",
   "nineSlice":null,
@@ -64,20 +64,20 @@
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
     "seqHeight":10.0,
-    "seqWidth":16.0,
+    "seqWidth":14.0,
     "showBackdrop":true,
     "showBackdropImage":false,
     "timeUnits":1,
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1fac5f97-506e-4dfc-82d8-5ca5fcde6caa","path":"sprites/spr_frog_hop_head/spr_frog_hop_head.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"89d3eac7-95a0-4842-a070-b2a576192a63","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e0f423cd-b13c-4f39-b885-948b1c611f54","path":"sprites/spr_frog_hop_head/spr_frog_hop_head.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"b43ac764-2c30-43c5-9816-9bc5d82ba873","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":8,
+    "xorigin":7,
     "yorigin":10,
   },
   "swatchColours":null,
@@ -88,5 +88,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":16,
+  "width":14,
 }
