@@ -67,6 +67,8 @@
     {"id":{"name":"rm_tutorial","path":"rooms/rm_tutorial/rm_tutorial.yy",},},
     {"id":{"name":"spr_arrow","path":"sprites/spr_arrow/spr_arrow.yy",},},
     {"id":{"name":"spr_charge_bar","path":"sprites/spr_charge_bar/spr_charge_bar.yy",},},
+    {"id":{"name":"spr_decaying_platform_16_32","path":"sprites/spr_decaying_platform_16_32/spr_decaying_platform_16_32.yy",},},
+    {"id":{"name":"spr_decaying_platform_16_48","path":"sprites/spr_decaying_platform_16_48/spr_decaying_platform_16_48.yy",},},
     {"id":{"name":"spr_decaying_platform","path":"sprites/spr_decaying_platform/spr_decaying_platform.yy",},},
     {"id":{"name":"spr_frog_hop_body","path":"sprites/spr_frog_hop_body/spr_frog_hop_body.yy",},},
     {"id":{"name":"spr_frog_hop_head","path":"sprites/spr_frog_hop_head/spr_frog_hop_head.yy",},},
