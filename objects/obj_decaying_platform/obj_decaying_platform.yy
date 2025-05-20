@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_decaying_platform",
-    "path":"sprites/spr_decaying_platform/spr_decaying_platform.yy",
+    "name":"spr_decaying_platform_16_48",
+    "path":"sprites/spr_decaying_platform_16_48/spr_decaying_platform_16_48.yy",
   },
   "spriteMaskId":null,
   "visible":true,
