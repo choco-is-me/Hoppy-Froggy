@@ -2,12 +2,12 @@
 //show_debug_message("State: " + state + ", HSP: " + string(hsp) + ", VSP: " + string(vsp) + ", Facing: " + string(facing) + ", HP: " + string(hp));
 
 // Input
-var key_left = keyboard_check(ord("A"));
-var key_right = keyboard_check(ord("D"));
-var key_space_pressed = keyboard_check_pressed(vk_space);
-var key_space_held = keyboard_check(vk_space);
-var key_space_released = keyboard_check_released(vk_space);
-var mouse_left_pressed = mouse_check_button_pressed(mb_left);
+var key_left = global.key_left;
+var key_right = global.key_right;
+var key_space_pressed = global.key_space_pressed;
+var key_space_held = global.key_space_held;
+var key_space_released = global.key_space_released;
+var mouse_left_pressed = global.mouse_left_pressed;
 
 // Check if player is on ground (used for multiple state checks)
 var on_ground = place_meeting(x, y + 1, obj_platform);
