@@ -1,26 +1,19 @@
 // Step
+get_controls();
 //show_debug_message("State: " + state + ", HSP: " + string(hsp) + ", VSP: " + string(vsp) + ", Facing: " + string(facing) + ", HP: " + string(hp));
-
-// Input
-var key_left = global.key_left;
-var key_right = global.key_right;
-var key_space_pressed = global.key_space_pressed;
-var key_space_held = global.key_space_held;
-var key_space_released = global.key_space_released;
-var mouse_left_pressed = global.mouse_left_pressed;
 
 // Check if player is on ground (used for multiple state checks)
 var on_ground = place_meeting(x, y + 1, obj_platform);
 
 // Debug damage timer for testing
-if (state != "Damaged" && state != "Dead") {
-    debug_damage_timer++;
-    if (debug_damage_timer >= debug_damage_interval) {
-        debug_damage_timer = 0;
-        // Take damage for testing
-        take_damage(1);
-    }
-}
+//if (state != "Damaged" && state != "Dead") {
+    //debug_damage_timer++;
+    //if (debug_damage_timer >= debug_damage_interval) {
+        //debug_damage_timer = 0;
+        //// Take damage for testing
+        //take_damage(1);
+    //}
+//}
 
 // Health bar transition animation handling
 if (health_transition_active) {
@@ -265,6 +258,23 @@ switch (state) {
         
         // Destroy instance when fully faded
         if (death_alpha <= 0) {
+            if( !instance_exists(obj_warp) and !instance_exists(obj_title_trans) and !instance_exists(obj_respawn_trans) ){
+	            var _inst = instance_create_depth(0, 0, -9999, obj_respawn_trans);
+	            _inst.target_rm = target_rm;
+	            _inst.target_x = target_x;
+	            _inst.target_y = target_y;
+	            _inst.target_face = target_face;
+	            _inst.animation_speed = animation_speed;
+	            _inst.delay = delay;
+                
+	            // Store player data in a global variable before destroying
+	            global.player_respawn_data = {
+	                target_rm: target_rm,
+	                target_x: target_x,
+	                target_y: target_y,
+	                target_face: target_face
+	            };
+	        }
             instance_destroy();
         }
         

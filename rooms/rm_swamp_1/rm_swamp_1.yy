@@ -77,7 +77,7 @@
     {"name":"inst_73FBA498","path":"rooms/rm_swamp_1/rm_swamp_1.yy",},
     {"name":"inst_4BCEE50B","path":"rooms/rm_swamp_1/rm_swamp_1.yy",},
     {"name":"inst_6EB4EF14","path":"rooms/rm_swamp_1/rm_swamp_1.yy",},
-    {"name":"inst_7942AEE8","path":"rooms/rm_swamp_1/rm_swamp_1.yy",},
+    {"name":"inst_3B52CBCE","path":"rooms/rm_swamp_1/rm_swamp_1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -90,7 +90,7 @@
           -2147483648,1,13,-4,14,2,92,91,-4,14,1,92,-38,26,1,-2147483648,-10,26,-11,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"ts_swamp","path":"tilesets/ts_swamp/ts_swamp.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRInstanceLayer":"","%Name":"Player","depth":100,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"v2","%Name":"inst_7942AEE8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7942AEE8","objectId":{"name":"obj_frog","path":"objects/obj_frog/obj_frog.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":32.0,"y":288.0,},
+        {"$GMRInstance":"v2","%Name":"inst_3B52CBCE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3B52CBCE","objectId":{"name":"obj_start","path":"objects/obj_start/obj_start.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":112.0,"y":272.0,},
       ],"layers":[],"name":"Player","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Platforms","depth":200,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v2","%Name":"inst_32AADD0A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_32AADD0A","objectId":{"name":"obj_normal_platform","path":"objects/obj_normal_platform/obj_normal_platform.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":144.0,},
@@ -185,7 +185,7 @@
   "roomSettings":{
     "Height":400,
     "inheritRoomSettings":false,
-    "persistent":false,
+    "persistent":true,
     "Width":176,
   },
   "sequenceId":null,

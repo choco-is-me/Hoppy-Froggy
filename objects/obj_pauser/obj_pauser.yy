@@ -8,8 +8,8 @@
   "name":"obj_pauser",
   "overriddenProperties":[],
   "parent":{
-    "name":"Misc",
-    "path":"folders/Objects/Misc.yy",
+    "name":"Tele",
+    "path":"folders/Objects/Misc/Tele.yy",
   },
   "parentObjectId":null,
   "persistent":false,
