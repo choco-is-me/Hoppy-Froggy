@@ -103,7 +103,6 @@
   },
   "name":"Hoppy",
   "resources":[
-    {"id":{"name":"ani_frog_idle","path":"animcurves/ani_frog_idle/ani_frog_idle.yy",},},
     {"id":{"name":"__InputUpdateController","path":"objects/__InputUpdateController/__InputUpdateController.yy",},},
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},},
     {"id":{"name":"obj_death_particle","path":"objects/obj_death_particle/obj_death_particle.yy",},},
