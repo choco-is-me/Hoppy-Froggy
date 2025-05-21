@@ -122,15 +122,17 @@ switch (state) {
     case "Jumping":
         current_body_sprite = spr_frog_hop_body;
         current_head_sprite = spr_frog_hop_head;
-        image_speed = 0; // Use a single frame for hop animation, or set to 1 if it's an animation
-    
-        // Air control
-        var air_control_input = key_right - key_left; // -1 for left, 1 for right, 0 for none
+        image_speed = 0; // Use a single frame for hop animation
+        
+        // Remove this air control block to prevent mid-air movement:
+        /*
+        var air_control_input = key_right - key_left;
         if (air_control_input != 0) {
             hsp += air_control_input * air_control_force;
-            hsp = clamp(hsp, -max_hsp_air, max_hsp_air); // Clamp air-controlled speed
-            facing = sign(hsp); // Update facing based on movement direction if hsp is not 0
+            hsp = clamp(hsp, -max_hsp_air, max_hsp_air);
+            facing = sign(hsp);
         }
+        */
         
         // We've removed the attack check - can't attack while jumping anymore
         // The arrow will still oscillate, but clicking won't trigger an attack

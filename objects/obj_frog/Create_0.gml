@@ -16,10 +16,10 @@ gravity_val = 0.5; // Gravity strength
 
 // Jumping and Direction
 facing = 1; // 1 for right, -1 for left
-base_jump_power_vertical = 7;   // Max vertical power
-base_jump_power_horizontal = 1; // Horizontal speed when jumping with direction
+base_jump_power_vertical = 8;   // Max vertical power
+base_jump_power_horizontal = 2.5; // Horizontal speed when jumping with direction
 air_control_force = 0.3;        // How much keys affect hsp in air
-max_hsp_air = 3;                // Max horizontal speed from air control input
+max_hsp_air = 4;                // Max horizontal speed from air control input
 
 // Attack variables
 arrow_angle = 90;      // Start at the top (90° = straight up in GameMaker)
