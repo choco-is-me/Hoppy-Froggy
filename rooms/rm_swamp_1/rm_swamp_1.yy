@@ -81,9 +81,13 @@
   ],
   "isDnd":false,
   "layers":[
-    {"$GMRTileLayer":"","%Name":"Tiles_1","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":20,"SerialiseWidth":11,"TileCompressedData":[
-          -120,-2147483648,1,33,-10,-2147483648,1,33,-10,-2147483648,1,33,-10,-2147483648,1,33,-10,-2147483648,
-          1,33,-9,-2147483648,1,65,-28,-2147483648,1,17,-4,18,2,114,-2147483648,-4,18,1,114,-5,-2147483648,
+    {"$GMRTileLayer":"","%Name":"Tiles_1","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":25,"SerialiseWidth":11,"TileCompressedData":[
+          1,76,-9,38,2,77,27,-9,-2147483648,2,25,27,-9,-2147483648,2,25,27,-9,-2147483648,2,25,91,-5,14,1,51,-3,
+          -2147483648,1,25,-3,26,3,76,38,39,-4,-2147483648,5,25,76,38,38,39,-5,-2147483648,3,13,92,27,-8,-2147483648,
+          3,25,26,27,-6,-2147483648,5,13,14,92,26,27,-4,-2147483648,7,49,50,43,38,38,77,27,-9,-2147483648,4,25,
+          44,50,51,-7,-2147483648,2,25,27,-9,-2147483648,2,25,27,-3,-2147483648,3,49,50,51,-3,-2147483648,2,25,
+          27,-9,-2147483648,2,25,27,-8,-2147483648,3,49,43,27,-9,-2147483648,2,25,27,-9,-2147483648,2,25,27,-4,
+          -2147483648,1,13,-4,14,2,92,91,-4,14,1,92,-38,26,1,-2147483648,-10,26,-11,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"ts_swamp","path":"tilesets/ts_swamp/ts_swamp.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRInstanceLayer":"","%Name":"Player","depth":100,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v2","%Name":"inst_7942AEE8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7942AEE8","objectId":{"name":"obj_frog","path":"objects/obj_frog/obj_frog.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":32.0,"y":288.0,},
@@ -179,7 +183,7 @@
   "resourceType":"GMRoom",
   "resourceVersion":"2.0",
   "roomSettings":{
-    "Height":320,
+    "Height":400,
     "inheritRoomSettings":false,
     "persistent":false,
     "Width":176,
