@@ -1,3 +1,4 @@
+// Draw
 // Calculate head offset based on state and current body sprite
 var head_offset = -6; // Default for 7px height sprites (idle, hop)
 if (state == "Charging" && current_body_sprite == spr_frog_prehop_body) {

@@ -1,3 +1,4 @@
+// Step
 show_debug_message("State: " + state + ", HSP: " + string(hsp) + ", VSP: " + string(vsp) + ", Facing: " + string(facing));
 
 // Input
@@ -7,6 +8,9 @@ var key_space_pressed = keyboard_check_pressed(vk_space);
 var key_space_held = keyboard_check(vk_space);
 var key_space_released = keyboard_check_released(vk_space);
 var mouse_left_pressed = mouse_check_button_pressed(mb_left);
+
+// Check if player is on ground (used for multiple state checks)
+var on_ground = place_meeting(x, y + 1, obj_platform);
 
 // Update arrow oscillation (will be active in most states)
 if (state != "Attack") {
@@ -36,7 +40,7 @@ switch (state) {
             facing = 1;
         }
 
-        if (key_space_pressed) {
+        if (key_space_pressed && on_ground) { // Only start charging if on ground
             state = "Charging";
             image_index = 0; // Start pre-hop animation
             jump_charge = 0;
@@ -66,7 +70,14 @@ switch (state) {
             facing = 1;
         }
 
-        if (key_space_held) {
+        // Check if player has fallen off platform while charging
+        if (!on_ground) {
+            state = "Jumping"; // Change to jumping state if no longer on ground
+            image_index = 0;
+            jump_charge = 0;   // Reset jump charge
+            // Don't apply any jump velocity since they're already falling
+        }
+        else if (key_space_held) {
             jump_charge += charge_rate;
             if (jump_charge >= jump_charge_max) {
                 jump_charge = jump_charge_max;
@@ -86,26 +97,33 @@ switch (state) {
         }
 
         if (key_space_released) {
-            state = "Jumping";
-            image_index = 0; // Reset for jump sprite
+            if (on_ground) { // Only jump if still on ground when releasing
+                state = "Jumping";
+                image_index = 0; // Reset for jump sprite
 
-            // Calculate vertical jump power
-            vsp = -(jump_charge / jump_charge_max) * base_jump_power_vertical;
+                // Calculate vertical jump power
+                vsp = -(jump_charge / jump_charge_max) * base_jump_power_vertical;
 
-            // Determine horizontal jump direction and speed
-            var jump_h_direction = 0;
-            if (key_left) { // Prioritize currently held keys for jump direction
-                jump_h_direction = -1;
-            } else if (key_right) {
-                jump_h_direction = 1;
-            } else { // If no key held on release, use current facing direction
-                jump_h_direction = facing;
-            }
-            hsp = jump_h_direction * base_jump_power_horizontal;
-            
-            // Ensure facing is updated if jump direction was based on keys
-            if (jump_h_direction != 0) {
-                facing = jump_h_direction;
+                // Determine horizontal jump direction and speed
+                var jump_h_direction = 0;
+                if (key_left) { // Prioritize currently held keys for jump direction
+                    jump_h_direction = -1;
+                } else if (key_right) {
+                    jump_h_direction = 1;
+                } else { // If no key held on release, use current facing direction
+                    jump_h_direction = facing;
+                }
+                hsp = jump_h_direction * base_jump_power_horizontal;
+                
+                // Ensure facing is updated if jump direction was based on keys
+                if (jump_h_direction != 0) {
+                    facing = jump_h_direction;
+                }
+            } else {
+                // If not on ground when releasing, just go to jumping state without adding velocity
+                state = "Jumping";
+                image_index = 0;
+                // Keep current vsp and hsp (falling)
             }
         }
         
@@ -176,7 +194,7 @@ switch (state) {
                 if (tongue_length <= 0) {
                     tongue_active = false;
                     // Return to previous state based on conditions
-                    if (place_meeting(x, y + 1, obj_platform)) {
+                    if (on_ground) { // Use our on_ground variable here too
                         state = "Idle";
                     } else {
                         state = "Jumping";
@@ -192,7 +210,7 @@ switch (state) {
 // Only apply gravity and movement physics when not attacking
 if (state != "Attack") {
     // Apply Gravity
-    if (!place_meeting(x, y + 1, obj_platform) || vsp < 0 || state == "Jumping") {
+    if (!on_ground || vsp < 0 || state == "Jumping") {
         vsp += gravity_val;
     }
 
