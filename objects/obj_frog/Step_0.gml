@@ -1,5 +1,5 @@
 // Step
-show_debug_message("State: " + state + ", HSP: " + string(hsp) + ", VSP: " + string(vsp) + ", Facing: " + string(facing));
+//show_debug_message("State: " + state + ", HSP: " + string(hsp) + ", VSP: " + string(vsp) + ", Facing: " + string(facing) + ", HP: " + string(hp));
 
 // Input
 var key_left = keyboard_check(ord("A"));
@@ -12,8 +12,33 @@ var mouse_left_pressed = mouse_check_button_pressed(mb_left);
 // Check if player is on ground (used for multiple state checks)
 var on_ground = place_meeting(x, y + 1, obj_platform);
 
-// Update arrow oscillation (will be active in most states)
-if (state != "Attack") {
+// Debug damage timer for testing
+if (state != "Damaged" && state != "Dead") {
+    debug_damage_timer++;
+    if (debug_damage_timer >= debug_damage_interval) {
+        debug_damage_timer = 0;
+        // Take damage for testing
+        take_damage(1);
+    }
+}
+
+// Health bar transition animation handling
+if (health_transition_active) {
+    health_transition_progress += health_transition_speed;
+    
+    if (health_transition_progress >= 1) {
+        // Transition completed
+        health_transition_active = false;
+        health_bar_frame = health_transition_target_frame;
+    } else {
+        // During transition, lerp between frames
+        var intermediate_frame = lerp(health_transition_start_frame, health_transition_target_frame, health_transition_progress);
+        health_bar_frame = floor(intermediate_frame);
+    }
+}
+
+// Update arrow oscillation (will be active in most non-damaged states)
+if (state != "Attack" && state != "Damaged" && state != "Dead") {
     arrow_angle += arrow_speed * arrow_direction;
     
     // Switch direction at boundaries
@@ -185,12 +210,72 @@ switch (state) {
             }
         }
         break;
+        
+    case "Damaged":
+        // Use damaged sprites
+        current_body_sprite = spr_frog_damaged_body;
+        current_head_sprite = spr_frog_damaged_head;
+        
+        // Control animation frame manually
+        damaged_timer++;
+        if (damaged_timer % damaged_frame_speed == 0) {
+            damaged_frame = !damaged_frame; // Toggle between 0 and 1
+        }
+        
+        image_index = damaged_frame;
+        
+        // Exit damaged state after animation completes
+        if (damaged_timer >= damaged_duration) {
+            damaged_timer = 0;
+            
+            // Explicitly reset any possible momentum before changing states
+            hsp = 0;
+            vsp = 0;
+            
+            // Return to appropriate state based on grounding
+            if (hp <= 0) {
+                state = "Dead"; // If no health left, transition to dead state
+            } else if (on_ground) {
+                state = "Idle";
+            } else {
+                state = "Jumping";
+            }
+        }
+        
+        // No player control during damaged state
+        break;
+        
+    case "Dead":
+        // Use dead sprites
+        current_body_sprite = spr_frog_dead_body;
+        current_head_sprite = spr_frog_dead_head;
+        image_index = 0; // Single frame for dead sprites
+        
+        // Fade out effect
+        death_alpha -= death_fade_speed;
+        if (death_alpha <= 0) death_alpha = 0;
+        
+        // Create death particle at the center point between head and body
+        if (!death_particle_created) {
+            death_particle_created = true;
+            // Create death particle effect at center of frog
+            instance_create_layer(x, y - 10, layer, obj_death_particle);
+            // Note: If obj_death_particle doesn't exist, you'll need to create it
+        }
+        
+        // Destroy instance when fully faded
+        if (death_alpha <= 0) {
+            instance_destroy();
+        }
+        
+        // No player control during dead state
+        break;
 }
 
 // --- Physics and Movement (applied after state logic) ---
 
-// Only apply gravity and movement physics when not attacking
-if (state != "Attack") {
+// Only apply gravity and movement physics when not attacking, damaged, or dead
+if (state != "Attack" && state != "Damaged" && state != "Dead") {
     // Apply Gravity
     if (!on_ground || vsp < 0 || state == "Jumping") {
         vsp += gravity_val;

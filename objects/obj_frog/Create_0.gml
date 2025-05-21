@@ -4,6 +4,20 @@ current_body_sprite = spr_frog_idle_body;
 current_head_sprite = spr_frog_idle_head;
 image_speed = 1; // Animation speed for idle and pre-hop animations
 
+// Health system variables
+hp = 3; // 3 hearts of health
+max_hp = 3;
+health_bar_frame = 0; // Starting with image_index 0 (full 3 hearts)
+health_transition_active = false;
+health_transition_start_frame = 0;
+health_transition_target_frame = 0;
+health_transition_progress = 0;
+health_transition_speed = 0.1; // Speed of health bar animation
+
+// Debug timer for testing damage
+debug_damage_timer = 0;
+debug_damage_interval = 200; // 5 seconds at 60 fps
+
 // Jump charge variables
 jump_charge = 0;
 jump_charge_max = 100; // Maximum charge value
@@ -38,3 +52,14 @@ tongue_max_length = 64;   // Maximum tongue extension length
 tongue_speed = 4;         // Speed of tongue extension
 tongue_retracting = false; // Whether tongue is extending (false) or retracting (true)
 tongue_damage = 10;       // Damage dealt by tongue hit
+
+// Damaged state variables
+damaged_timer = 0;
+damaged_duration = 20; // Duration of damaged animation (adjust as needed)
+damaged_frame = 0;
+damaged_frame_speed = 10; // Change frame every 10 steps
+
+// Death variables
+death_alpha = 1;         // For fading out effect
+death_fade_speed = 0.02; // How quickly the frog fades out (decrease alpha)
+death_particle_created = false;
