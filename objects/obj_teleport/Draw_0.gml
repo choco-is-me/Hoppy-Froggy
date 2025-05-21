@@ -1,8 +1,5 @@
-// Draw
-draw_self();
-
-// Debug: Draw a colored overlay to identify it as a teleport (optional)
-// draw_set_alpha(0.3);
-// draw_set_color(c_aqua);
-// draw_rectangle(x, y, x + sprite_width - 1, y + sprite_height - 1, false);
-// draw_set_alpha(1);
+// Draw Event
+draw_self(); // draw the sprite
+draw_set_color(c_red); // set the drawing color to red
+draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, false); // draw the bounding box
+draw_set_color(c_white); // reset the drawing color to white
