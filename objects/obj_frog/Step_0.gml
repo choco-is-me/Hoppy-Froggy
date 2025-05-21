@@ -53,6 +53,12 @@ switch (state) {
             tongue_angle = arrow_angle;
             tongue_length = 0;
             tongue_retracting = false;
+            
+            // NEW CODE: Set facing based on which side the arrow is pointing
+            // If arrow_angle > 90 (left half of semicircle), face left
+            // If arrow_angle <= 90 (right half of semicircle), face right
+            facing = (arrow_angle > 90) ? -1 : 1;
+            
             // Calculate a normalized direction vector for the tongue
             var tongue_dir_x = lengthdir_x(1, tongue_angle);
             var tongue_dir_y = lengthdir_y(1, tongue_angle);
@@ -125,15 +131,6 @@ switch (state) {
                 image_index = 0;
                 // Keep current vsp and hsp (falling)
             }
-        }
-        
-        // Check for attack
-        if (mouse_left_pressed && can_attack) {
-            state = "Attack";
-            tongue_active = true;
-            tongue_angle = arrow_angle;
-            tongue_length = 0;
-            tongue_retracting = false;
         }
         break;
 
