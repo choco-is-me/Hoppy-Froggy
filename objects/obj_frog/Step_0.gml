@@ -259,7 +259,7 @@ switch (state) {
         if (!death_particle_created) {
             death_particle_created = true;
             // Create death particle effect at center of frog
-            instance_create_layer(x, y - 10, layer, obj_death_particle);
+            instance_create_layer(x, y - 9, layer, obj_death_particle);
             // Note: If obj_death_particle doesn't exist, you'll need to create it
         }
         
