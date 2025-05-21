@@ -31,8 +31,8 @@ if (state != "Attack") {
 if (tongue_active && state == "Attack") {
     // Calculate tongue origin position at the frog's mouth
     // Adjusting both for the head's position and horizontal offset for the mouth
-    var tongue_origin_x = x + facing + 2; // Move origin horizontally based on facing direction (adjust value as needed)
-    var tongue_origin_y = y + head_offset - 4; // Vertical position based on head offset + adjustment for mouth position
+    var tongue_origin_x = x + facing + 0.5; // Move origin horizontally based on facing direction (adjust value as needed)
+    var tongue_origin_y = y + head_offset - 3.5; // Vertical position based on head offset + adjustment for mouth position
     
     // Calculate tongue body direction and length
     var tongue_dir_x = lengthdir_x(1, tongue_angle);

@@ -53,8 +53,6 @@ switch (state) {
             tongue_angle = arrow_angle;
             tongue_length = 0;
             tongue_retracting = false;
-            
-            // NEW CODE: Set facing based on which side the arrow is pointing
             // If arrow_angle > 90 (left half of semicircle), face left
             // If arrow_angle <= 90 (right half of semicircle), face right
             facing = (arrow_angle > 90) ? -1 : 1;
@@ -138,19 +136,6 @@ switch (state) {
         current_body_sprite = spr_frog_hop_body;
         current_head_sprite = spr_frog_hop_head;
         image_speed = 0; // Use a single frame for hop animation
-        
-        // Remove this air control block to prevent mid-air movement:
-        /*
-        var air_control_input = key_right - key_left;
-        if (air_control_input != 0) {
-            hsp += air_control_input * air_control_force;
-            hsp = clamp(hsp, -max_hsp_air, max_hsp_air);
-            facing = sign(hsp);
-        }
-        */
-        
-        // We've removed the attack check - can't attack while jumping anymore
-        // The arrow will still oscillate, but clicking won't trigger an attack
         break;
         
     case "Attack":
