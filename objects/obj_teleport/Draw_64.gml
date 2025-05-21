@@ -1,3 +1,4 @@
+// Draw GUI
 // Only draw the fade effect if teleporting
 if (teleporting && fade_alpha > 0) {
     // Set blend mode for proper alpha blending

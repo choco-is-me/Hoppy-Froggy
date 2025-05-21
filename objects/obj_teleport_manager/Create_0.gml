@@ -1,2 +1,2 @@
-// Add a flag to track if we're handling an input lock across rooms
+// Create
 global.input_lock_active = false;

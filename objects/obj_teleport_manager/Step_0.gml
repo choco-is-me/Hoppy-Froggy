@@ -1,3 +1,4 @@
+// Step
 // Check if we're coming from a teleport to another room
 if (global.teleport_active) {
     // Find the player and position them at the destination

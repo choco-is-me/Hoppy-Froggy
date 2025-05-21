@@ -63,6 +63,7 @@
     {"id":{"name":"obj_game_controller","path":"objects/obj_game_controller/obj_game_controller.yy",},},
     {"id":{"name":"obj_game_inputs","path":"objects/obj_game_inputs/obj_game_inputs.yy",},},
     {"id":{"name":"obj_normal_platform","path":"objects/obj_normal_platform/obj_normal_platform.yy",},},
+    {"id":{"name":"obj_pauser","path":"objects/obj_pauser/obj_pauser.yy",},},
     {"id":{"name":"obj_platform","path":"objects/obj_platform/obj_platform.yy",},},
     {"id":{"name":"obj_teleport_manager","path":"objects/obj_teleport_manager/obj_teleport_manager.yy",},},
     {"id":{"name":"obj_teleport","path":"objects/obj_teleport/obj_teleport.yy",},},

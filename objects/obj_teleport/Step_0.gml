@@ -1,3 +1,4 @@
+// Step
 // Only proceed if not already teleporting
 if (!teleporting) {
     // Check if frog is standing on teleport

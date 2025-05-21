@@ -1,4 +1,4 @@
-// Draw the teleport object (if it has a sprite)
+// Draw
 draw_self();
 
 // Debug: Draw a colored overlay to identify it as a teleport (optional)

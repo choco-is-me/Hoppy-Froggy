@@ -1,3 +1,4 @@
+// Create
 // Default teleport settings (will be overwritten by creation code)
 room_dest = -1;        // Default: no room change (-1 means stay in current room)
 target_x = x;          // Default target is the object's own position
