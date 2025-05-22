@@ -5,16 +5,6 @@ get_controls();
 // Check if player is on ground (used for multiple state checks)
 var on_ground = place_meeting(x, y + 1, obj_platform);
 
-// Debug damage timer for testing
-//if (state != "Damaged" && state != "Dead") {
-    //debug_damage_timer++;
-    //if (debug_damage_timer >= debug_damage_interval) {
-        //debug_damage_timer = 0;
-        //// Take damage for testing
-        //take_damage(1);
-    //}
-//}
-
 // Health bar transition animation handling
 if (health_transition_active) {
     health_transition_progress += health_transition_speed;
@@ -172,20 +162,33 @@ switch (state) {
                     tongue_retracting = true;
                 }
                 
-                // Here's where you'd check for enemy collision with tongue head
-                // Will be implemented later when enemies are added
-                /*
-                var tongue_head_x = x + lengthdir_x(tongue_length, tongue_angle);
-                var tongue_head_y = y + lengthdir_y(tongue_length, tongue_angle);
-                var enemy = collision_point(tongue_head_x, tongue_head_y, obj_enemy, false, true);
-                if (enemy != noone) {
-                    // Deal damage to enemy
-                    with (enemy) {
-                        hp -= other.tongue_damage;
+                // Check for enemy collision with tongue head
+                if (tongue_active && !tongue_retracting) {
+                    // Calculate head offset here just like in the Draw event
+                    var head_offset = -6; // Default for attack sprites
+                    
+                    // Recalculate tongue origin position
+                    var tongue_origin_x = x + facing * 0.5;
+                    var tongue_origin_y = y + head_offset - 3.5;
+                    
+                    // Recalculate tongue direction vectors
+                    var tongue_dir_x = lengthdir_x(1, tongue_angle);
+                    var tongue_dir_y = lengthdir_y(1, tongue_angle);
+                    
+                    // Calculate tongue head position
+                    var tongue_head_x = tongue_origin_x + tongue_dir_x * tongue_length;
+                    var tongue_head_y = tongue_origin_y + tongue_dir_y * tongue_length;
+                    
+                    // Find fly within a small radius of the tongue head
+                    var enemy = collision_circle(tongue_head_x, tongue_head_y, 5, obj_fly, false, true);
+                    if (enemy != noone) {
+                        // Deal damage to enemy
+                        with (enemy) {
+                            receive_damage(1);
+                        }
+                        tongue_retracting = true; // Start retracting after hitting enemy
                     }
-                    tongue_retracting = true; // Start retracting after hitting enemy
                 }
-                */
             } else {
                 // Retracting the tongue
                 tongue_length -= tongue_speed;

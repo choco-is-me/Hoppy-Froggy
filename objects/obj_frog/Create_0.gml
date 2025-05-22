@@ -14,26 +14,22 @@ health_transition_target_frame = 0;
 health_transition_progress = 0;
 health_transition_speed = 0.1; // Speed of health bar animation
 
-// Debug timer for testing damage
-debug_damage_timer = 0;
-debug_damage_interval = 100; // 5 seconds at 60 fps
-
 // Jump charge variables
 jump_charge = 0;
 jump_charge_max = 100; // Maximum charge value
 charge_rate = 2;       // Charge increase per step
 
 // Movement and gravity variables
-vsp = 0; // Vertical speed
-hsp = 0; // Horizontal speed
+vsp = 0;           // Vertical speed
+hsp = 0;           // Horizontal speed
 gravity_val = 0.5; // Gravity strength
 
 // Jumping and Direction
 facing = 1; // 1 for right, -1 for left
-base_jump_power_vertical = 8;   // Max vertical power
+base_jump_power_vertical = 8;     // Max vertical power
 base_jump_power_horizontal = 2.5; // Horizontal speed when jumping with direction
-air_control_force = 0.3;        // How much keys affect hsp in air
-max_hsp_air = 4;                // Max horizontal speed from air control input
+air_control_force = 0.3;          // How much keys affect hsp in air
+max_hsp_air = 4;                  // Max horizontal speed from air control input
 
 // Attack variables
 arrow_angle = 90;      // Start at the top (90° = straight up in GameMaker)
@@ -48,14 +44,14 @@ can_attack = true;     // Whether player can attack
 tongue_active = false;    // Whether the tongue is currently out
 tongue_angle = 0;         // Angle of tongue extension
 tongue_length = 0;        // Current tongue length
-tongue_max_length = 64;   // Maximum tongue extension length
-tongue_speed = 4;         // Speed of tongue extension
-tongue_retracting = false; // Whether tongue is extending (false) or retracting (true)
+tongue_max_length = 120;   // Maximum tongue extension length
+tongue_speed = 6;         // Speed of ton gue extension
+tongue_retracting = false;// Whether tongue is extending (false) or retracting (true)
 tongue_damage = 10;       // Damage dealt by tongue hit
 
 // Damaged state variables
 damaged_timer = 0;
-damaged_duration = 20; // Duration of damaged animation (adjust as needed)
+damaged_duration = 20;    // Duration of damaged animation (adjust as needed)
 damaged_frame = 0;
 damaged_frame_speed = 10; // Change frame every 10 steps
 

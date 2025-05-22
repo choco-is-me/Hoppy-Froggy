@@ -33,6 +33,16 @@ function take_damage(damage_amount) {
     }
 }
 
+// For Fly
+function receive_damage(damage_amount) {
+    if (state != "Damaged" && state != "Dead") {
+        hp -= damage_amount;
+        state = "Damaged";
+        damaged_timer = 0;
+        damaged_frame = 0;
+    }
+}
+
 // Start a new transition
 function start_transition(_mode, _target_room = -1, _target_x = -1, _target_y = -1, _target_facing = 1, _fade_in_speed = 0.05, _fade_out_speed = 0.05, _delay = 30, _target_obj = noone) {
     mode = _mode;
