@@ -33,6 +33,29 @@ function take_damage(damage_amount) {
     }
 }
 
+// Start a new transition
+function start_transition(_mode, _target_room = -1, _target_x = -1, _target_y = -1, _target_facing = 1, _fade_in_speed = 0.05, _fade_out_speed = 0.05, _delay = 30, _target_obj = noone) {
+    mode = _mode;
+    target_room = _target_room;
+    target_x = _target_x;
+    target_y = _target_y;
+    target_facing = _target_facing;
+    fade_in_speed = _fade_in_speed;
+    fade_out_speed = _fade_out_speed;
+    delay_duration = _delay;
+    target_obj = _target_obj;
+    
+    // Determine if this is a room change or same-room teleport
+    teleport_same_room = (_target_room == -1 && _target_x != -1 && _target_y != -1);
+    restart_game = (_mode == TRANS_MODE.FADE_IN && _target_room == -1 && _target_x == -1 && _target_y == -1);
+    
+    // Initialize for fade in
+    if (_mode == TRANS_MODE.FADE_IN) {
+        percent = 0;
+    }
+}
+
+// Check Audio
 function music_and_sound_loaded() {
     return audio_group_is_loaded(UI);
 }

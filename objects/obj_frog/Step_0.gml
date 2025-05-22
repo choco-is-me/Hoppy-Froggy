@@ -6,14 +6,14 @@ get_controls();
 var on_ground = place_meeting(x, y + 1, obj_platform);
 
 // Debug damage timer for testing
-//if (state != "Damaged" && state != "Dead") {
-    //debug_damage_timer++;
-    //if (debug_damage_timer >= debug_damage_interval) {
-        //debug_damage_timer = 0;
-        //// Take damage for testing
-        //take_damage(1);
-    //}
-//}
+if (state != "Damaged" && state != "Dead") {
+    debug_damage_timer++;
+    if (debug_damage_timer >= debug_damage_interval) {
+        debug_damage_timer = 0;
+        // Take damage for testing
+        take_damage(1);
+    }
+}
 
 // Health bar transition animation handling
 if (health_transition_active) {
@@ -252,16 +252,16 @@ switch (state) {
         if (!death_particle_created) {
             death_particle_created = true;
             // Create death particle effect at center of frog
-            instance_create_layer(x, y - 9, layer, obj_death_particle);
+            instance_create_layer(x, y - 9, "Instances", obj_death_particle);
         }
         
-        // When fully faded, create transition for restart
+        // When fully faded, trigger game restart
         if (death_alpha <= 0) {
+            room_restart();
+            // Need Game Restart
             // Destroy the player instance
             instance_destroy();
         }
-        
-        // No player control during dead state
         break;
 }
 
