@@ -63,12 +63,4 @@ damaged_frame_speed = 10; // Change frame every 10 steps
 death_alpha = 1;         // For fading out effect
 death_fade_speed = 0.02; // How quickly the frog fades out (decrease alpha)
 death_particle_created = false;
-
-// Transition Values
-target_rm = dev_room; // Don't touch
-target_x = 34; // Don't touch
-target_y = 275; // Don't touch
-target_face = -1; // Don't touch
-animation_speed = 0.01; // Don't touch
-delay = 0; // Don't touch
 depth = -100;
