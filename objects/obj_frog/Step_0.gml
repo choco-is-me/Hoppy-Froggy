@@ -6,14 +6,14 @@ get_controls();
 var on_ground = place_meeting(x, y + 1, obj_platform);
 
 // Debug damage timer for testing
-if (state != "Damaged" && state != "Dead") {
-    debug_damage_timer++;
-    if (debug_damage_timer >= debug_damage_interval) {
-        debug_damage_timer = 0;
-        // Take damage for testing
-        take_damage(1);
-    }
-}
+//if (state != "Damaged" && state != "Dead") {
+    //debug_damage_timer++;
+    //if (debug_damage_timer >= debug_damage_interval) {
+        //debug_damage_timer = 0;
+        //// Take damage for testing
+        //take_damage(1);
+    //}
+//}
 
 // Health bar transition animation handling
 if (health_transition_active) {
