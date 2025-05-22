@@ -1,3 +1,4 @@
+// Room Start
 if !instance_exists(obj_frog) exit;
     
 var cam_width = camera_get_view_width(view_camera[0]);

@@ -71,3 +71,4 @@ target_y = 275; // Don't touch
 target_face = -1; // Don't touch
 animation_speed = 0.01; // Don't touch
 delay = 0; // Don't touch
+depth = -100;

@@ -76,8 +76,8 @@ if (state == "Charging" && sprite_exists(spr_charge_bar)) {
     draw_sprite(spr_charge_bar, frame_index, x + 2, y - 16);
 }
 
-// Draw health bar (always visible)
-if (sprite_exists(spr_health_bar)) {
-    // Draw at top of screen, centered
-    draw_sprite(spr_health_bar, health_bar_frame, camera_get_view_x(view_camera[0]) + 16, camera_get_view_y(view_camera[0]) + 16);
-}
+//// Draw health bar (always visible)
+//if (sprite_exists(spr_health_bar)) {
+    //// Draw at top of screen, centered
+    //draw_sprite(spr_health_bar, health_bar_frame, camera_get_view_x(view_camera[0]) + 16, camera_get_view_y(view_camera[0]) + 16);
+//}

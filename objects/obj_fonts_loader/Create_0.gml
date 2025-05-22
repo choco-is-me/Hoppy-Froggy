@@ -1,3 +1,4 @@
+// Create
 font_enable_effects(fnt_main_outline, true, {
     outlineEnable: true,
     outlineDistance: 1,
