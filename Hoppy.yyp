@@ -128,6 +128,7 @@
     {"id":{"name":"obj_menu","path":"objects/obj_menu/obj_menu.yy",},},
     {"id":{"name":"obj_normal_platform","path":"objects/obj_normal_platform/obj_normal_platform.yy",},},
     {"id":{"name":"obj_platform","path":"objects/obj_platform/obj_platform.yy",},},
+    {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},},
     {"id":{"name":"dev_room","path":"rooms/dev_room/dev_room.yy",},},
     {"id":{"name":"initialization_room","path":"rooms/initialization_room/initialization_room.yy",},},
     {"id":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},

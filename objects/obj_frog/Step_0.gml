@@ -257,10 +257,10 @@ switch (state) {
         
         // When fully faded, trigger game restart
         if (death_alpha <= 0) {
-            room_restart();
-            // Need Game Restart
-            // Destroy the player instance
-            instance_destroy();
+            // Create transition with restart_room action (will use death_delay)
+            var trans = instance_create_layer(0, 0, "Instances", obj_transition);
+            trans.target_action = "restart_room";
+            // Don't destroy the instance here, let the transition handle it
         }
         break;
 }

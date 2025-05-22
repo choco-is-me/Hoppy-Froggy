@@ -1,3 +1,4 @@
+// Step
 // Load Controls
 get_controls();
 
@@ -65,7 +66,9 @@ if (_interaction_detected && !menu_locked) {
     switch (pos) {
         case 0: // New Game
             menu_locked = true;
-            room_goto_next();
+            // Create transition with next_room action (will use menu_delay)
+            var trans = instance_create_layer(0, 0, "Instances", obj_transition);
+            trans.target_action = "next_room";
             break;
         case 1: // Exit (Touch Some Grass)
             game_end(); 

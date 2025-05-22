@@ -1,16 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_controller",
+  "%Name":"obj_transition",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":12,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_controller",
+  "name":"obj_transition",
   "overriddenProperties":[],
   "parent":{
-    "name":"Init",
-    "path":"folders/Objects/Misc/Init.yy",
+    "name":"Tele",
+    "path":"folders/Objects/Misc/Tele.yy",
   },
   "parentObjectId":null,
   "persistent":true,
