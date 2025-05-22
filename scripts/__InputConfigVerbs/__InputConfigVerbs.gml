@@ -20,9 +20,9 @@ function __InputConfigVerbs()
         NAVIGATION,
     }
     
-    // Define UP and DOWN with undefined inputs since we don't need them
-    InputDefineVerb(INPUT_VERB.UP,           "up",           undefined,          undefined);
-    InputDefineVerb(INPUT_VERB.DOWN,         "down",         undefined,          undefined);
+    // Updated UP and DOWN with proper keyboard and controller inputs
+    InputDefineVerb(INPUT_VERB.UP,           "up",           ["W", vk_up],       [-gp_axislv, gp_padu]);
+    InputDefineVerb(INPUT_VERB.DOWN,         "down",         ["S", vk_down],     [gp_axislv, gp_padd]);
     
     // Define the inputs you actually use
     InputDefineVerb(INPUT_VERB.LEFT,         "left",         ["A", vk_left],     [-gp_axislh, gp_padl]);

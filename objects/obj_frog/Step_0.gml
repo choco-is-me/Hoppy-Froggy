@@ -253,28 +253,11 @@ switch (state) {
             death_particle_created = true;
             // Create death particle effect at center of frog
             instance_create_layer(x, y - 9, layer, obj_death_particle);
-            // Note: If obj_death_particle doesn't exist, you'll need to create it
         }
         
-        // Destroy instance when fully faded
+        // When fully faded, create transition for restart
         if (death_alpha <= 0) {
-            if( !instance_exists(obj_warp) and !instance_exists(obj_title_trans) and !instance_exists(obj_respawn_trans) ){
-	            var _inst = instance_create_depth(0, 0, -9999, obj_respawn_trans);
-	            _inst.target_rm = target_rm;
-	            _inst.target_x = target_x;
-	            _inst.target_y = target_y;
-	            _inst.target_face = target_face;
-	            _inst.animation_speed = animation_speed;
-	            _inst.delay = delay;
-                
-	            // Store player data in a global variable before destroying
-	            global.player_respawn_data = {
-	                target_rm: target_rm,
-	                target_x: target_x,
-	                target_y: target_y,
-	                target_face: target_face
-	            };
-	        }
+            // Destroy the player instance
             instance_destroy();
         }
         
