@@ -1,7 +1,7 @@
 /// Create Event
 // General variables
 state = "Idle";  // Initial state
-hp = 3;          // Health points (3 HP as requested)
+hp = 2;          // Health points (3 HP as requested)
 max_hp = 3;
 facing = 1;      // 1 = right, -1 = left
 depth = -90;     // Appear behind player but above most objects

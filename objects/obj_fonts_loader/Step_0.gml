@@ -1,7 +1,7 @@
 // Step
-if (!audio_group_is_loaded(UI))
+if (!audio_group_is_loaded(licensed_sound))
 {
-    audio_group_load(UI);
+    audio_group_load(licensed_sound);
 }
 
 // Only try to go to the next room once when audio is loaded

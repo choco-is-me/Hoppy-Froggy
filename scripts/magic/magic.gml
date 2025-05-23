@@ -67,5 +67,5 @@ function start_transition(_mode, _target_room = -1, _target_x = -1, _target_y = 
 
 // Check Audio
 function music_and_sound_loaded() {
-    return audio_group_is_loaded(UI);
+    return audio_group_is_loaded(licensed_sound);
 }

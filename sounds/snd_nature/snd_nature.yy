@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_nature",
+  "audioGroupId":{
+    "name":"UI",
+    "path":"audiogroups/UI",
+  },
+  "bitDepth":1,
+  "bitRate":512,
+  "compression":0,
+  "conversionMode":0,
+  "duration":52.453876,
+  "name":"snd_nature",
+  "parent":{
+    "name":"Background",
+    "path":"folders/Sounds/Background.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_nature.mp3",
+  "type":2,
+  "volume":1.0,
+}

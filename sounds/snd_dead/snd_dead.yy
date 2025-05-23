@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_dead",
+  "audioGroupId":{
+    "name":"UI",
+    "path":"audiogroups/UI",
+  },
+  "bitDepth":1,
+  "bitRate":512,
+  "compression":0,
+  "conversionMode":0,
+  "duration":3.3840137,
+  "name":"snd_dead",
+  "parent":{
+    "name":"SFX",
+    "path":"folders/Sounds/SFX.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_dead.mp3",
+  "type":2,
+  "volume":1.0,
+}

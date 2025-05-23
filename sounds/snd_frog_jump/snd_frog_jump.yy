@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_frog_jump",
+  "audioGroupId":{
+    "name":"UI",
+    "path":"audiogroups/UI",
+  },
+  "bitDepth":1,
+  "bitRate":512,
+  "compression":0,
+  "conversionMode":0,
+  "duration":1.7760091,
+  "name":"snd_frog_jump",
+  "parent":{
+    "name":"SFX",
+    "path":"folders/Sounds/SFX.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"snd_frog_jump.mp3",
+  "type":2,
+  "volume":1.0,
+}
