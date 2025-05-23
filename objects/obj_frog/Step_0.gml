@@ -179,8 +179,9 @@ switch (state) {
                     var tongue_head_x = tongue_origin_x + tongue_dir_x * tongue_length;
                     var tongue_head_y = tongue_origin_y + tongue_dir_y * tongue_length;
                     
-                    // Find fly within a small radius of the tongue head
-                    var enemy = collision_circle(tongue_head_x, tongue_head_y, 5, obj_fly, false, true);
+                    // NEW CODE: Use the parent object instead of specific enemy types
+                    var enemy = collision_circle(tongue_head_x, tongue_head_y, 5, obj_all_enemies, false, true);
+                    
                     if (enemy != noone) {
                         // Deal damage to enemy
                         with (enemy) {

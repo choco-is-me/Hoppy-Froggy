@@ -107,7 +107,7 @@ switch (state) {
             y += vsp;
             
             // Hard boundary check
-            var dist_from_origin = point_distance(x, y, origin_x, origin_y);
+            dist_from_origin = point_distance(x, y, origin_x, origin_y);
             if (dist_from_origin > fly_range * 1.2) { // Allow slightly larger range during attack
                 var angle_to_origin = point_direction(x, y, origin_x, origin_y);
                 x = origin_x + lengthdir_x(fly_range * 1.2, angle_to_origin);
@@ -133,6 +133,7 @@ switch (state) {
                 bullet.speed = bullet_speed;
                 bullet.direction = angle_to_player;
                 bullet.image_angle = angle_to_player;
+                bullet.spin_speed = 5; // Set the desired spinning speed here
             }
             
             // Return to idle if player is out of range

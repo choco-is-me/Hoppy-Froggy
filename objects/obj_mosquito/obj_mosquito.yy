@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_fly",
+  "%Name":"obj_mosquito",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_fly",
+  "name":"obj_mosquito",
   "overriddenProperties":[],
   "parent":{
-    "name":"Flies",
-    "path":"folders/Objects/Enemies/Flies.yy",
+    "name":"Mosquitos",
+    "path":"folders/Objects/Enemies/Mosquitos.yy",
   },
   "parentObjectId":{
     "name":"obj_all_enemies",
