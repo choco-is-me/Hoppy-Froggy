@@ -66,12 +66,42 @@ if (_interaction_detected && !menu_locked) {
     switch (pos) {
         case 0: // New Game
             menu_locked = true;
-            // Create transition with next_room action (will use menu_delay)
+            // Stop the current music
+            if (current_track_id != noone) {
+                audio_stop_sound(current_track_id);
+                current_track_id = noone;
+            }
+            // Create transition with next_room action
             var trans = instance_create_layer(0, 0, "Instances", obj_transition);
             trans.target_action = "next_room";
             break;
         case 1: // Exit (Touch Some Grass)
+            // Stop the current music
+            if (current_track_id != noone) {
+                audio_stop_sound(current_track_id);
+                current_track_id = noone;
+            }
             game_end(); 
             break;
     }
+}
+
+// Music playlist management
+if (!music_initialized) {
+    // Start the first track only once
+    current_track_id = audio_play_sound(playlist[current_track_index], 10, false);
+    music_initialized = true;
+} 
+else if (!audio_is_playing(current_track_id)) {
+    // Current track finished, move to next track
+    current_track_index++;
+    
+    // If we've reached the end of the playlist, reshuffle and start over
+    if (current_track_index >= playlist_size) {
+        current_track_index = 0;
+        shuffle_playlist();
+    }
+    
+    // Play the next track
+    current_track_id = audio_play_sound(playlist[current_track_index], 10, false);
 }

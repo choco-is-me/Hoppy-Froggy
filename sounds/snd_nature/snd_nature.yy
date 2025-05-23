@@ -2,14 +2,14 @@
   "$GMSound":"",
   "%Name":"snd_nature",
   "audioGroupId":{
-    "name":"UI",
-    "path":"audiogroups/UI",
+    "name":"licensed_sound",
+    "path":"audiogroups/licensed_sound",
   },
   "bitDepth":1,
   "bitRate":512,
-  "compression":0,
+  "compression":2,
   "conversionMode":0,
-  "duration":52.453876,
+  "duration":169.83075,
   "name":"snd_nature",
   "parent":{
     "name":"Background",

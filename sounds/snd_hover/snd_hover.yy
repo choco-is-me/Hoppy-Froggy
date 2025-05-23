@@ -7,7 +7,7 @@
   },
   "bitDepth":1,
   "bitRate":128,
-  "compression":0,
+  "compression":2,
   "conversionMode":0,
   "duration":0.20897959,
   "name":"snd_hover",

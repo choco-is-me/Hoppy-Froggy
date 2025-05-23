@@ -25,3 +25,24 @@ op_length = 0;  // Will be set in Step Event
 // Menu options setup - only main menu now
 option[0, 0] = "New Game";
 option[0, 1] = "Touch Some Grass"; // Now this is option 1 instead of 2
+
+// Music playlist setup
+playlist = [snd_below_and_above, snd_fireflies, snd_home, snd_french_meme_song];
+playlist_size = array_length(playlist);
+current_track_index = 0;
+current_track_id = noone; // To store the actual playing audio instance
+music_initialized = false;
+
+// Shuffle the playlist
+shuffle_playlist = function() {
+    // Fisher-Yates shuffle algorithm
+    for (var i = playlist_size - 1; i > 0; i--) {
+        var j = irandom(i);
+        var temp = playlist[i];
+        playlist[i] = playlist[j];
+        playlist[j] = temp;
+    }
+}
+
+// Initial shuffle
+shuffle_playlist();
