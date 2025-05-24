@@ -18,6 +18,7 @@ move_direction = irandom(359); // Random initial direction
 origin_x = x;
 origin_y = y;
 fly_range = 100;  // Max distance from origin point
+return_speed = 1.2;  // Speed when returning to origin (slightly faster than normal movement)
 
 // Attack variables
 attack_range = 150;  // Distance to detect player
