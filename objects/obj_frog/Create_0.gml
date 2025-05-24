@@ -59,4 +59,19 @@ damaged_frame_speed = 10; // Change frame every 10 steps
 death_alpha = 1;         // For fading out effect
 death_fade_speed = 0.02; // How quickly the frog fades out (decrease alpha)
 death_particle_created = false;
+
+// Sound related variables
+audio_charging = -1;            // ID for charging sound
+audio_charging_playing = false; // Flag to track if charging sound is playing
+audio_charging_max_reached = false; // Flag to track if charge is at max
+
+// One-shot sound flags to prevent multiple plays
+audio_jump_played = false;
+audio_hit_played = false;
+audio_dead_played = false;
+audio_charging_length = 0.79; // Store the length of the charging sound in seconds
+
+// Track enemy hits separately from damage state
+audio_enemy_hit_played = false;
+
 depth = -100;

@@ -41,6 +41,18 @@ switch (state) {
         current_head_sprite = spr_frog_idle_head;
         image_speed = 1;
 
+        // Reset sound flags when returning to idle
+        audio_jump_played = false;
+        audio_hit_played = false;
+        audio_enemy_hit_played = false;
+        audio_charging_max_reached = false;
+        
+        // Make sure charging sound is stopped
+        if (audio_charging_playing) {
+            audio_stop_sound(audio_charging);
+            audio_charging_playing = false;
+        }
+
         // Determine facing direction
         if (key_left) {
             facing = -1;
@@ -52,6 +64,12 @@ switch (state) {
             state = "Charging";
             image_index = 0; // Start pre-hop animation
             jump_charge = 0;
+            
+            // Start charging sound when entering charging state
+            audio_charging = audio_play_sound(snd_frog_charging, 5, false);
+            audio_charging_playing = true;
+            // Start at beginning of sound
+            audio_sound_set_track_position(audio_charging, 0);
         }
         
         // Check for attack
@@ -84,13 +102,54 @@ switch (state) {
 
         // Check if player has fallen off platform while charging
         if (!on_ground) {
-            state = "Jumping"; // Change to jumping state if no longer on ground
+            state = "Jumping";
             image_index = 0;
-            jump_charge = 0;   // Reset jump charge
+            jump_charge = 0;
+            
+            // Stop charging sound if playing
+            if (audio_charging_playing && audio_exists(audio_charging)) {
+                audio_stop_sound(audio_charging);
+                audio_charging_playing = false;
+            }
+            
             // Don't apply any jump velocity since they're already falling
         }
         else if (key_space_held) {
             jump_charge += charge_rate;
+            
+            // Improved charging sound management
+            if (jump_charge < jump_charge_max) {
+                // Calculate charge percentage
+                var charge_percent = jump_charge / jump_charge_max;
+                
+                // Check if we need to play or replay the charging sound
+                if (!audio_charging_playing || !audio_is_playing(audio_charging)) {
+                    // If sound was playing but stopped, clean up
+                    if (audio_charging_playing) {
+                        audio_charging_playing = false;
+                    }
+                    
+                    // Start the charging sound based on current charge level
+                    audio_charging = audio_play_sound(snd_frog_charging, 5, false);
+                    audio_charging_playing = true;
+                    
+                    // Set position based on charge level, clamping to avoid going past end
+                    var target_position = min(charge_percent * audio_charging_length, audio_charging_length - 0.1);
+                    audio_sound_set_track_position(audio_charging, target_position);
+                }
+            } 
+            // If we reach max charge, stop the sound
+            else if (jump_charge >= jump_charge_max && !audio_charging_max_reached) {
+                jump_charge = jump_charge_max;
+                audio_charging_max_reached = true;
+                
+                // Stop sound if playing
+                if (audio_charging_playing && audio_exists(audio_charging)) {
+                    audio_stop_sound(audio_charging);
+                    audio_charging_playing = false;
+                }
+            }
+            
             if (jump_charge >= jump_charge_max) {
                 jump_charge = jump_charge_max;
                 image_speed = 0; // Freeze animation on last frame
@@ -109,9 +168,22 @@ switch (state) {
         }
 
         if (key_space_released) {
-            if (on_ground) { // Only jump if still on ground when releasing
+            // Stop charging sound if still playing
+            if (audio_charging_playing && audio_exists(audio_charging)) {
+                audio_stop_sound(audio_charging);
+                audio_charging_playing = false;
+            }
+            
+            // Rest of jump logic remains unchanged
+            if (on_ground) {
                 state = "Jumping";
-                image_index = 0; // Reset for jump sprite
+                image_index = 0;
+                
+                // Play jump sound once
+                if (!audio_jump_played) {
+                    audio_play_sound(snd_frog_jump, 6, false);
+                    audio_jump_played = true;
+                }
 
                 // Calculate vertical jump power
                 vsp = -(jump_charge / jump_charge_max) * base_jump_power_vertical;
@@ -179,7 +251,7 @@ switch (state) {
                     var tongue_head_x = tongue_origin_x + tongue_dir_x * tongue_length;
                     var tongue_head_y = tongue_origin_y + tongue_dir_y * tongue_length;
                     
-                    // NEW CODE: Use the parent object instead of specific enemy types
+                    // Use the parent object instead of specific enemy types
                     var enemy = collision_circle(tongue_head_x, tongue_head_y, 5, obj_all_enemies, false, true);
                     
                     if (enemy != noone) {
@@ -187,6 +259,13 @@ switch (state) {
                         with (enemy) {
                             receive_damage(1);
                         }
+                        
+                        // Play hit sound once per attack when hitting an enemy
+                        if (!audio_enemy_hit_played) {
+                            audio_play_sound(snd_hit, 7, false);
+                            audio_enemy_hit_played = true;
+                        }
+                        
                         tongue_retracting = true; // Start retracting after hitting enemy
                     }
                 }
@@ -197,6 +276,8 @@ switch (state) {
                 // Check if tongue has fully retracted
                 if (tongue_length <= 0) {
                     tongue_active = false;
+                    audio_enemy_hit_played = false; // Reset hit sound flag when attack ends
+                    
                     // Return to previous state based on conditions
                     if (on_ground) { // Use our on_ground variable here too
                         state = "Idle";
@@ -209,6 +290,12 @@ switch (state) {
         break;
         
     case "Damaged":
+        // Play hit/damage sound once when entering damaged state
+        if (!audio_hit_played) {
+            audio_play_sound(snd_hit, 7, false);
+            audio_hit_played = true;
+        }
+        
         // Use damaged sprites
         current_body_sprite = spr_frog_damaged_body;
         current_head_sprite = spr_frog_damaged_head;
@@ -243,6 +330,12 @@ switch (state) {
         break;
         
     case "Dead":
+        // Play death sound once when entering dead state
+        if (!audio_dead_played) {
+            audio_play_sound(snd_dead, 8, false);
+            audio_dead_played = true;
+        }
+        
         // Use dead sprites
         current_body_sprite = spr_frog_dead_body;
         current_head_sprite = spr_frog_dead_head;
