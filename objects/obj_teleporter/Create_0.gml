@@ -1,4 +1,4 @@
-// Create Event
+// Create
 // Teleport target variables
 target_x = 0;          // X position to teleport to
 target_y = 0;          // Y position to teleport to

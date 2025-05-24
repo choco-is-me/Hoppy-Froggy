@@ -1,4 +1,4 @@
-/// Step Event
+/// Step
 // Update animation based on state
 switch (state) {
     case "Idle":

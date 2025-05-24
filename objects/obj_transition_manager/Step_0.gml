@@ -1,4 +1,4 @@
-// Step Event
+// Step
 switch(state) {
     case "inactive":
         // Nothing to do when inactive

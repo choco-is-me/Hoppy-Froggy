@@ -1,4 +1,4 @@
-// Step Event
+// Step
 // Check if we should activate
 if (automatic && place_meeting(x, y, obj_frog) && !instance_exists(obj_all_enemies)) {
     activated = true;

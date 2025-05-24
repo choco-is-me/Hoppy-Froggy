@@ -1,4 +1,4 @@
-// Room Start Event
+// Room Start
 // Check if we're in the menu
 if (room == rm_menu) {
     in_menu = true;

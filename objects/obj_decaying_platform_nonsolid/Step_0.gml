@@ -1,3 +1,4 @@
+// Step
 inactive_timer += 1;
 
 if (inactive_timer >= reactivate_time) {

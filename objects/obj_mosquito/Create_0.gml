@@ -1,4 +1,4 @@
-/// Create Event
+/// Create
 // General variables
 state = "Idle";  // Initial state
 hp = 2;          // Health points (3 HP as requested)

@@ -1,4 +1,4 @@
-// Create Event
+// Create
 alpha = 0;             // Current fade alpha (0 = clear, 1 = black)
 state = "inactive";    // States: inactive, fading_in, delay, fading_out
 fade_in_speed = 0.05;  // How fast screen fades to black

@@ -1,4 +1,4 @@
-// Draw GUI Event
+// Draw GUI
 if (alpha > 0) {
     // Store previous settings
     var prev_alpha = draw_get_alpha();
