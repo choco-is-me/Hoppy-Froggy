@@ -1,4 +1,10 @@
 // Room Start
+// Reset the room completion flag when entering a new room
+room_complete_played = false;
+// Set the gameplay room flag based on the current room
+// This determines if we should check for enemy completion in this room
+in_gameplay_room = (room != rm_menu && room != initialization_room);
+
 // Check if we're in the menu
 if (room == rm_menu) {
     in_menu = true;
