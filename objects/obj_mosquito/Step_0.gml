@@ -248,17 +248,21 @@ switch (state) {
             case "Return":
                 // Calculate direction back to origin
                 var angle_to_origin = point_direction(x, y, origin_x, origin_y);
+                var dist_from_origin = point_distance(x, y, origin_x, origin_y);
                 
-                // Smoothly move back toward origin
-                hsp = lengthdir_x(return_speed, angle_to_origin);
-                vsp = lengthdir_y(return_speed, angle_to_origin);
+                // Smoothly move back toward origin with distance-based speed
+                // This naturally slows down as we get closer to origin
+                var return_intensity = min(dist_from_origin / fly_range, 1);
+                var current_return_speed = return_speed * return_intensity;
+                
+                hsp = lengthdir_x(current_return_speed, angle_to_origin);
+                vsp = lengthdir_y(current_return_speed, angle_to_origin);
                 
                 // Apply movement
                 x += hsp;
                 y += vsp;
                 
                 // Check if we're back within normal range
-                var dist_from_origin = point_distance(x, y, origin_x, origin_y);
                 if (dist_from_origin <= fly_range) {
                     // We're back inside normal range, go to cooldown
                     attack_state = "Cooldown";
