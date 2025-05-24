@@ -12,8 +12,8 @@
   "duration":3.3840137,
   "name":"snd_dead",
   "parent":{
-    "name":"SFX",
-    "path":"folders/Sounds/SFX.yy",
+    "name":"Frog",
+    "path":"folders/Sounds/SFX/Frog.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

@@ -11,7 +11,8 @@ function __InputConfigVerbs()
         JUMP_HELD,
         JUMP_RELEASED,
         MOUSE_LEFT,
-        PAUSE
+        PAUSE,
+        FULLSCREEN // Add this new enum value for fullscreen toggle
     }
     
     enum INPUT_CLUSTER
@@ -38,6 +39,9 @@ function __InputConfigVerbs()
     
     // Pause functionality
     InputDefineVerb(INPUT_VERB.PAUSE,        "pause",        vk_escape,          gp_start);
+    
+    // Fullscreen toggle - F11 on keyboard, no mapping for controller
+    InputDefineVerb(INPUT_VERB.FULLSCREEN,   "fullscreen",   vk_f11,             undefined);
     
     // Define the NAVIGATION cluster that's referenced internally
     InputDefineCluster(INPUT_CLUSTER.NAVIGATION, INPUT_VERB.UP, INPUT_VERB.RIGHT, INPUT_VERB.DOWN, INPUT_VERB.LEFT);

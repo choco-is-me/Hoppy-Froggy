@@ -46,6 +46,7 @@ switch (state) {
         audio_hit_played = false;
         audio_enemy_hit_played = false;
         audio_charging_max_reached = false;
+        audio_attack_played = false;
         
         // Make sure charging sound is stopped
         if (audio_charging_playing) {
@@ -54,9 +55,9 @@ switch (state) {
         }
 
         // Determine facing direction
-        if (key_left) {
+        if (key_left_hold) {
             facing = -1;
-        } else if (key_right) {
+        } else if (key_right_hold) {
             facing = 1;
         }
 
@@ -79,6 +80,11 @@ switch (state) {
             tongue_angle = arrow_angle;
             tongue_length = 0;
             tongue_retracting = false;
+            
+            // Play attack sound immediately when attack starts
+            audio_play_sound(snd_frog_attack, 6, false);
+            audio_attack_played = true;
+            
             // If arrow_angle > 90 (left half of semicircle), face left
             // If arrow_angle <= 90 (right half of semicircle), face right
             facing = (arrow_angle > 90) ? -1 : 1;
@@ -94,9 +100,9 @@ switch (state) {
         current_head_sprite = spr_frog_prehop_head;
 
         // Determine facing direction
-        if (key_left) {
+        if (key_left_hold) {
             facing = -1;
-        } else if (key_right) {
+        } else if (key_right_hold) {
             facing = 1;
         }
 
@@ -190,9 +196,9 @@ switch (state) {
 
                 // Determine horizontal jump direction and speed
                 var jump_h_direction = 0;
-                if (key_left) { // Prioritize currently held keys for jump direction
+                if (key_left_hold) { // Prioritize currently held keys for jump direction
                     jump_h_direction = -1;
-                } else if (key_right) {
+                } else if (key_right_hold) {
                     jump_h_direction = 1;
                 } else { // If no key held on release, use current facing direction
                     jump_h_direction = facing;

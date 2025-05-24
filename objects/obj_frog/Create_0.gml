@@ -67,6 +67,7 @@ audio_charging_max_reached = false; // Flag to track if charge is at max
 
 // One-shot sound flags to prevent multiple plays
 audio_jump_played = false;
+audio_attack_played = false;
 audio_hit_played = false;
 audio_dead_played = false;
 audio_charging_length = 0.79; // Store the length of the charging sound in seconds

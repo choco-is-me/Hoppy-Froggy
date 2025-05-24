@@ -12,8 +12,8 @@
   "duration":0.7894785,
   "name":"snd_frog_charging",
   "parent":{
-    "name":"SFX",
-    "path":"folders/Sounds/SFX.yy",
+    "name":"Frog",
+    "path":"folders/Sounds/SFX/Frog.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

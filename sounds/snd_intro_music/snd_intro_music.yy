@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_frog_jump",
+  "%Name":"snd_intro_music",
   "audioGroupId":{
     "name":"licensed_sound",
     "path":"audiogroups/licensed_sound",
@@ -9,17 +9,17 @@
   "bitRate":512,
   "compression":2,
   "conversionMode":0,
-  "duration":1.7760091,
-  "name":"snd_frog_jump",
+  "duration":0.0,
+  "name":"snd_intro_music",
   "parent":{
-    "name":"Frog",
-    "path":"folders/Sounds/SFX/Frog.yy",
+    "name":"Music",
+    "path":"folders/Sounds/Music.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":48000,
-  "soundFile":"snd_frog_jump.mp3",
+  "soundFile":"snd_intro_music",
   "type":2,
   "volume":1.0,
 }
