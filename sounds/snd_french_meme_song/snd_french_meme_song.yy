@@ -21,5 +21,5 @@
   "sampleRate":48000,
   "soundFile":"snd_french_meme_song.mp3",
   "type":2,
-  "volume":1.0,
+  "volume":0.3,
 }

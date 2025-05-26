@@ -21,5 +21,5 @@
   "sampleRate":48000,
   "soundFile":"snd_intro_music",
   "type":2,
-  "volume":1.0,
+  "volume":0.3,
 }
