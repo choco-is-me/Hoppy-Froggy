@@ -4,12 +4,12 @@ draw_set_valign(fa_top);
 draw_set_halign(fa_left);
 
 for(var _i = 0; _i < op_length; _i++){
-    var _color = c_white;
+    var _color = #ecebe7;
     var _display_text = option[menu_level, _i];
     
     if(pos == _i){
         draw_set_font(fnt_main_outline_shade_glow);
-        _color = #48F7FF;
+        _color = #cbc6c1;
     } else {
         draw_set_font(fnt_main_outline_shade);
     }
