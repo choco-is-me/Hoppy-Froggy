@@ -1,4 +1,3 @@
-// Create
 randomize(); // Seed the random number generator for true randomness
 // Control Setup
 window_set_cursor(cr_none);
@@ -12,10 +11,13 @@ cursor_scale_x = 2;
 cursor_scale_y = 2;
 
 // Menu dimensions
-width = 640;
-height = 480;
-op_border = 100;
-op_space = 20;
+op_border = 100; // Keeping this for potential padding adjustments, though not used directly now
+op_space = 20;   // Vertical spacing between options
+vertical_offset = 20; // Moves the menu down by 20 pixels
+
+// New variables for text positioning
+start_x = 0;
+start_y = 0;
 
 // Menu state
 pos = 0;

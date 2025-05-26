@@ -1,4 +1,3 @@
-// Step
 // Load Controls
 get_controls();
 
@@ -8,6 +7,16 @@ var _mouse_y_pos = device_mouse_y(0);
 
 // Update options length for current menu level
 op_length = array_length(option[menu_level]);
+
+// Calculate view dimensions
+var _view_width = camera_get_view_width(view_camera[0]);
+var _view_height = camera_get_view_height(view_camera[0]);
+
+// Calculate starting positions for left-aligned text
+var left_padding = _view_width / 5; // Padding is one-fifth of screen width
+start_x = camera_get_view_x(view_camera[0]) + left_padding;
+var total_height = (op_length - 1) * op_space + font_get_size(fnt_main_outline_shade) * 0.5;
+start_y = camera_get_view_y(view_camera[0]) + (_view_height / 2) - (total_height / 2) + vertical_offset; // Adjusted with offset
 
 // Keyboard navigation
 var _new_pos = pos;
@@ -27,8 +36,8 @@ var _mouse_over_option = -1;
 hovering = false; // Reset hover state
 
 for (var _i = 0; _i < op_length; _i++) {
-    var _option_x = x + op_border;
-    var _option_y = y + op_border + op_space * _i;
+    var _option_x = start_x;
+    var _option_y = start_y + op_space * _i;
     var _display_text = option[menu_level, _i];
     var _option_w = string_width(_display_text) * 0.5; // Scale by 0.5 as in draw
     var _option_h = font_get_size(fnt_main_outline_shade) * 0.5;
