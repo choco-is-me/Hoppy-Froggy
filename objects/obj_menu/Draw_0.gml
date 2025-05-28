@@ -8,10 +8,10 @@ for(var _i = 0; _i < op_length; _i++){
     var _display_text = option[menu_level, _i];
     
     if(pos == _i){
-        draw_set_font(fnt_main_outline_shade_glow);
+        draw_set_font(fnt_main_outline_glow);
         _color = #cbc6c1;
     } else {
-        draw_set_font(fnt_main_outline_shade);
+        draw_set_font(fnt_main_outline);
     }
     
     // Draw text at the calculated positions

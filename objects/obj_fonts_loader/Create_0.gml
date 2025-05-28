@@ -2,7 +2,7 @@
 font_enable_effects(fnt_main_outline, true, {
     outlineEnable: true,
     outlineDistance: 1,
-    outlineColour: c_black
+    outlineColour: #586335
 });
 
 font_enable_effects(fnt_main_glow, true, {
@@ -23,10 +23,10 @@ font_enable_effects(fnt_main_shade, true, {
 font_enable_effects(fnt_main_outline_glow, true, {
     outlineEnable: true,
     outlineDistance: 1,
-    outlineColour: c_black,
+    outlineColour: #333c24,
     glowEnable: true,
-    glowEnd: 6,
-    glowColour: c_red,
+    glowEnd: 1,
+    glowColour: c_white,
     glowAlpha: 4
 });
 

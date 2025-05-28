@@ -119,8 +119,8 @@
   "maintainGms1Font":false,
   "name":"fnt_main_outline",
   "parent":{
-    "name":"fnt_main",
-    "path":"folders/Fonts/fnt_main.yy",
+    "name":"Base with 1 effects only",
+    "path":"folders/Fonts/Base with 1 effects only.yy",
   },
   "pointRounding":0,
   "ranges":[
@@ -134,10 +134,7 @@
   "sdfSpread":8,
   "size":16.0,
   "styleName":"Regular",
-  "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
-  },
+  "textureGroupId":null,
   "TTFName":"",
   "usesSDF":true,
 }
