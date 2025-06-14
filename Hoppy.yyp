@@ -116,6 +116,7 @@
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"gamecontrollerdb.txt","CopyToMask":-1,"filePath":"datafiles","name":"gamecontrollerdb.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"input_license.txt","CopyToMask":-1,"filePath":"datafiles","name":"input_license.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"spacecat_splash_screen.mp4","CopyToMask":-1,"filePath":"datafiles","name":"spacecat_splash_screen.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],
@@ -516,7 +517,6 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"initialization_room","path":"rooms/initialization_room/initialization_room.yy",},},
-    {"roomId":{"name":"rm_swamp_10","path":"rooms/rm_swamp_10/rm_swamp_10.yy",},},
     {"roomId":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
     {"roomId":{"name":"rm_swamp_1","path":"rooms/rm_swamp_1/rm_swamp_1.yy",},},
     {"roomId":{"name":"rm_swamp_2","path":"rooms/rm_swamp_2/rm_swamp_2.yy",},},
@@ -527,6 +527,7 @@
     {"roomId":{"name":"rm_swamp_7","path":"rooms/rm_swamp_7/rm_swamp_7.yy",},},
     {"roomId":{"name":"rm_swamp_8","path":"rooms/rm_swamp_8/rm_swamp_8.yy",},},
     {"roomId":{"name":"rm_swamp_9","path":"rooms/rm_swamp_9/rm_swamp_9.yy",},},
+    {"roomId":{"name":"rm_swamp_10","path":"rooms/rm_swamp_10/rm_swamp_10.yy",},},
     {"roomId":{"name":"rm_tutorial","path":"rooms/rm_tutorial/rm_tutorial.yy",},},
     {"roomId":{"name":"dev_room","path":"rooms/dev_room/dev_room.yy",},},
   ],

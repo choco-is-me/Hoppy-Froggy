@@ -1,4 +1,19 @@
 // Create
+// Video Load
+video_has_ended = false;
+video_is_playing = false;
+video_surface = -1;
+
+// Offset
+video_x_offset = 50;  // Positive moves right, negative moves left
+video_y_offset = -50;  // Positive moves down, negative moves up
+
+// Open the splash screen video
+video_open("spacecat_splash_screen.mp4");
+// Don't loop the video - we only want it to play once
+video_enable_loop(false);
+
+// Font Load
 font_enable_effects(fnt_main_outline, true, {
     outlineEnable: true,
     outlineDistance: 1,
