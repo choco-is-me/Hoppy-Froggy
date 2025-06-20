@@ -1,7 +1,7 @@
 // In the instance creation code or Room Editor
 teleporter = instance_create_layer(x, y, "Instances", obj_teleporter);
-teleporter.target_x = 32;
-teleporter.target_y = 137;
+teleporter.target_x = 302;
+teleporter.target_y = 26;
 teleporter.target_room = rm_swamp_3;
 teleporter.target_facing = -1;
 teleporter.fade_in_speed = 0.02;
