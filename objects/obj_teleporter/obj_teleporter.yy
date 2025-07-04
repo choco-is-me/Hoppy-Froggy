@@ -35,5 +35,5 @@
     "path":"sprites/spr_tele/spr_tele.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"obj_deadly_platform",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_deadly_platform",
   "overriddenProperties":[],
@@ -9,10 +11,7 @@
     "name":"Platforms",
     "path":"folders/Objects/Platforms.yy",
   },
-  "parentObjectId":{
-    "name":"obj_platform",
-    "path":"objects/obj_platform/obj_platform.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -35,5 +34,5 @@
     "path":"sprites/spr_deadly_platform/spr_deadly_platform.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
