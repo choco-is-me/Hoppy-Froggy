@@ -35,8 +35,8 @@ max_hsp_air = 4;                  // Max horizontal speed from air control input
 arrow_angle = 90;      // Start at the top (90° = straight up in GameMaker)
 arrow_speed = 2;       // Speed of arrow oscillation (degrees per step)
 arrow_direction = 1;   // 1 = clockwise, -1 = counterclockwise
-arrow_min_angle = 30;  // Minimum angle (30° = top-right)
-arrow_max_angle = 150; // Maximum angle (150° = top-left)
+arrow_min_angle = -30;  // Minimum angle (-30° = top-right)
+arrow_max_angle = 200; // Maximum angle (200° = top-left)
 arrow_distance = 24;   // Distance of arrow from frog's center
 can_attack = true;     // Whether player can attack
 

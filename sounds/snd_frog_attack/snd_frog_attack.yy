@@ -21,5 +21,5 @@
   "sampleRate":48000,
   "soundFile":"snd_frog_attack.mp3",
   "type":2,
-  "volume":0.05,
+  "volume":0.1,
 }

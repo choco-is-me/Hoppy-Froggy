@@ -21,5 +21,5 @@
   "sampleRate":48000,
   "soundFile":"snd_room_complete.mp3",
   "type":2,
-  "volume":0.02,
+  "volume":0.3,
 }
