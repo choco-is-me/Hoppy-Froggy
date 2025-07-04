@@ -17,7 +17,7 @@ move_direction = irandom(359); // Random initial direction
 // Boundary variables
 origin_x = x;
 origin_y = y;
-fly_range = 100;  // Max distance from origin point
+fly_range = 150;  // Max distance from origin point
 return_speed = 1.5;
 
 // Attack variables

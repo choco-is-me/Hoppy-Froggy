@@ -17,14 +17,14 @@ move_direction = irandom(359); // Random initial direction
 // Boundary variables
 origin_x = x;
 origin_y = y;
-fly_range = 100;  // Max distance from origin point
+fly_range = 125;  // Max distance from origin point
 return_speed = 1.2;  // Speed when returning to origin (slightly faster than normal movement)
 
 // Attack variables
 attack_range = 150;  // Distance to detect player
 attack_cooldown = 0;
 attack_cooldown_max = 90; // Time between shots (1.5 seconds)
-bullet_speed = 2;    // Speed of bullets
+bullet_speed = 1;    // Speed of bullets
 
 // Damaged state variables
 damaged_timer = 0;

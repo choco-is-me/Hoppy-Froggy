@@ -1,6 +1,5 @@
 /// Create
 // Movement variables
-speed = 2; // Will be set by the fly when created
 direction = 0; // Will be set by the fly when created
 
 // Visual variables

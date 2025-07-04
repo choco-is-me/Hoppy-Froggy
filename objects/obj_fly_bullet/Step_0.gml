@@ -21,9 +21,9 @@ if (player != noone) {
     instance_destroy();
 }
 
-// Check for collision with platforms
-var platform = instance_place(x, y, obj_platform);
-if (platform != noone) {
-    // Destroy bullet on platform collision
-    instance_destroy();
-}
+//// Check for collision with platforms
+//var platform = instance_place(x, y, obj_platform);
+//if (platform != noone) {
+    //// Destroy bullet on platform collision
+    //instance_destroy();
+//}

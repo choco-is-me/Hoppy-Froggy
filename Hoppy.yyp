@@ -525,11 +525,11 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"initialization_room","path":"rooms/initialization_room/initialization_room.yy",},},
-    {"roomId":{"name":"rm_swamp_4","path":"rooms/rm_swamp_4/rm_swamp_4.yy",},},
     {"roomId":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
     {"roomId":{"name":"rm_swamp_1","path":"rooms/rm_swamp_1/rm_swamp_1.yy",},},
     {"roomId":{"name":"rm_swamp_2","path":"rooms/rm_swamp_2/rm_swamp_2.yy",},},
     {"roomId":{"name":"rm_swamp_3","path":"rooms/rm_swamp_3/rm_swamp_3.yy",},},
+    {"roomId":{"name":"rm_swamp_4","path":"rooms/rm_swamp_4/rm_swamp_4.yy",},},
     {"roomId":{"name":"rm_swamp_5","path":"rooms/rm_swamp_5/rm_swamp_5.yy",},},
     {"roomId":{"name":"rm_swamp_6","path":"rooms/rm_swamp_6/rm_swamp_6.yy",},},
     {"roomId":{"name":"rm_swamp_7","path":"rooms/rm_swamp_7/rm_swamp_7.yy",},},
