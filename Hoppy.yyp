@@ -134,6 +134,7 @@
     {"id":{"name":"fnt_main","path":"fonts/fnt_main/fnt_main.yy",},},
     {"id":{"name":"__InputUpdateController","path":"objects/__InputUpdateController/__InputUpdateController.yy",},},
     {"id":{"name":"obj_all_enemies","path":"objects/obj_all_enemies/obj_all_enemies.yy",},},
+    {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},},
     {"id":{"name":"obj_deadly_platform","path":"objects/obj_deadly_platform/obj_deadly_platform.yy",},},
     {"id":{"name":"obj_death_particle","path":"objects/obj_death_particle/obj_death_particle.yy",},},
