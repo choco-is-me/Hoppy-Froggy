@@ -12,8 +12,8 @@ view_set_camera(0, camera);
 target = obj_frog; 
 
 // Dead zone box dimensions (the "imagination box")
-dead_zone_width = 128;
-dead_zone_height = 96;
+dead_zone_width = 176;
+dead_zone_height = 99;
 
 // Smoothness of the camera movement (a value between 0 and 1)
 // A smaller value means smoother/slower movement.
