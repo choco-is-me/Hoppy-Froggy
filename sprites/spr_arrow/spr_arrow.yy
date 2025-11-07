@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"UI",
-    "path":"folders/Sprites/UI.yy",
+    "name":"In-game",
+    "path":"folders/Sprites/UI/In-game.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

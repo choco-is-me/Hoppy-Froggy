@@ -67,11 +67,3 @@ if (tongue_active && state == "Attack") {
         c_white, 1
     );
 }
-
-// Draw charge bar during Charging state
-if (state == "Charging" && sprite_exists(spr_charge_bar)) {
-    var charge_ratio = jump_charge / jump_charge_max;
-    var number_of_charge_frames = sprite_get_number(spr_charge_bar);
-    var frame_index = clamp(floor(charge_ratio * number_of_charge_frames), 0, number_of_charge_frames - 1);
-    draw_sprite(spr_charge_bar, frame_index, x + 2, y - 16);
-}

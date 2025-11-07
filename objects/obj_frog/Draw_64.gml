@@ -8,12 +8,30 @@ if (sprite_exists(spr_health_bar)) {
     draw_sprite_ext(
         spr_health_bar,    // Sprite
         health_bar_frame,  // Frame/subimg
-        120,                // X position
-        80,                // Y position
+        50,                // X position
+        50,                // Y position
         scale_x,           // X scale (increase to make wider)
         scale_y,           // Y scale (increase to make taller)
         0,                 // Rotation (0 = no rotation)
         c_white,           // Color (white = no tint)
         1                  // Alpha (1 = fully opaque)
     );
+}
+
+// Draw charge bar during Charging state
+if (state == "Charging" && sprite_exists(spr_charge_bar)) {
+    var charge_ratio = jump_charge / jump_charge_max;
+    var number_of_charge_frames = sprite_get_number(spr_charge_bar);
+    var frame_index = clamp(floor(charge_ratio * number_of_charge_frames), 0, number_of_charge_frames - 1);
+    draw_sprite_ext(
+		spr_charge_bar, 
+		frame_index, 
+		50,                // X position
+        360,                // Y position
+        7,           // X scale (increase to make wider)
+        7,           // Y scale (increase to make taller)
+        0,                 // Rotation (0 = no rotation)
+        c_white,           // Color (white = no tint)
+        1                  // Alpha (1 = fully opaque)
+	);
 }
