@@ -34,4 +34,4 @@ if (state == "Charging" && sprite_exists(spr_charge_bar)) {
         c_white,           // Color (white = no tint)
         1                  // Alpha (1 = fully opaque)
 	);
-}
+}  
