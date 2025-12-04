@@ -75,4 +75,14 @@ audio_charging_length = 0.79; // Store the length of the charging sound in secon
 // Track enemy hits separately from damage state
 audio_enemy_hit_played = false;
 
+// Health Bar Settings (Top Left)
+ui_hp_scale = 2;        // How big is the health bar? (1 = normal, 2 = double size)
+ui_hp_x = 24;           // Horizontal distance from left edge
+ui_hp_y = 24;           // Vertical distance from top edge
+
+// Charge Bar Settings (Bottom Left)
+ui_charge_scale = 2;    // How big is the charge bar?
+ui_charge_x = 24;       // Horizontal distance from left edge
+ui_charge_y = 24;       // Vertical distance from BOTTOM edge
+
 depth = -100;
