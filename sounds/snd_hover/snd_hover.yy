@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"snd_hover",
   "audioGroupId":{
     "name":"licensed_sound",
     "path":"audiogroups/licensed_sound",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "channelFormat":1,
   "compression":2,
+  "compressionQuality":4,
   "conversionMode":0,
   "duration":0.20897959,
+  "exportDir":"",
   "name":"snd_hover",
   "parent":{
     "name":"UI",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"snd_hover.mp3",
-  "type":1,
   "volume":1.0,
 }

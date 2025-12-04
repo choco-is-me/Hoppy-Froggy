@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"snd_fly_shooting",
   "audioGroupId":{
     "name":"licensed_sound",
     "path":"audiogroups/licensed_sound",
   },
   "bitDepth":1,
-  "bitRate":512,
+  "channelFormat":2,
   "compression":2,
+  "compressionQuality":10,
   "conversionMode":0,
   "duration":1.08,
+  "exportDir":"",
   "name":"snd_fly_shooting",
   "parent":{
     "name":"SFX",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":48000,
   "soundFile":"snd_fly_shooting.mp3",
-  "type":2,
   "volume":1.0,
 }

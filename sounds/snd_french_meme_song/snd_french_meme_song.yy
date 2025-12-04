@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"snd_french_meme_song",
   "audioGroupId":{
     "name":"licensed_sound",
     "path":"audiogroups/licensed_sound",
   },
   "bitDepth":1,
-  "bitRate":512,
+  "channelFormat":2,
   "compression":2,
+  "compressionQuality":10,
   "conversionMode":0,
-  "duration":14.558911,
+  "duration":14.558917,
+  "exportDir":"",
   "name":"snd_french_meme_song",
   "parent":{
     "name":"Music",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":48000,
   "soundFile":"snd_french_meme_song.mp3",
-  "type":2,
   "volume":0.3,
 }

@@ -30,7 +30,7 @@ option[0, 0] = "New Game";
 option[0, 1] = "Touch Some Grass"; // Now this is option 1 instead of 2
 
 // Music playlist setup
-playlist = [snd_below_and_above, snd_french_meme_song, snd_fireflies, snd_home, snd_french_meme_song, snd_french_meme_song];
+playlist = [snd_intro_music];
 playlist_size = array_length(playlist);
 current_track_index = 0;
 current_track_id = noone; // To store the actual playing audio instance

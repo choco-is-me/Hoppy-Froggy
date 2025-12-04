@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"snd_intro_music",
   "audioGroupId":{
     "name":"licensed_sound",
     "path":"audiogroups/licensed_sound",
   },
   "bitDepth":1,
-  "bitRate":512,
+  "channelFormat":2,
   "compression":2,
+  "compressionQuality":10,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":149.969,
+  "exportDir":"",
   "name":"snd_intro_music",
   "parent":{
     "name":"Music",
@@ -19,7 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":48000,
-  "soundFile":"snd_intro_music",
-  "type":2,
-  "volume":0.1,
+  "soundFile":"snd_intro_music.mp3",
+  "volume":1.0,
 }
