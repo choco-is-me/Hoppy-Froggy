@@ -106,6 +106,7 @@
     {"$GMFolder":"","%Name":"Frog Hop","folderPath":"folders/Sprites/Player/Frog Hop.yy","name":"Frog Hop","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Frog Idle","folderPath":"folders/Sprites/Player/Frog Idle.yy","name":"Frog Idle","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Frog Tongue","folderPath":"folders/Sprites/Player/Frog Tongue.yy","name":"Frog Tongue","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Frog Grip","folderPath":"folders/Sprites/Player/Frog Grip.yy","name":"Frog Grip","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tile Set Sprites","folderPath":"folders/Sprites/Tile Set Sprites.yy","name":"Tile Set Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"UI","folderPath":"folders/Sprites/UI.yy","name":"UI","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"In-game","folderPath":"folders/Sprites/UI/In-game.yy","name":"In-game","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -124,7 +125,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.1.210",
+    "IDEVersion":"2024.14.2.212",
   },
   "name":"Hoppy",
   "resources":[
@@ -504,7 +505,10 @@
     {"id":{"name":"spr_frog_hop_body","path":"sprites/spr_frog_hop_body/spr_frog_hop_body.yy",},},
     {"id":{"name":"spr_frog_hop_head","path":"sprites/spr_frog_hop_head/spr_frog_hop_head.yy",},},
     {"id":{"name":"spr_frog_idle_body","path":"sprites/spr_frog_idle_body/spr_frog_idle_body.yy",},},
+    {"id":{"name":"spr_frog_idle_grip","path":"sprites/spr_frog_idle_grip/spr_frog_idle_grip.yy",},},
     {"id":{"name":"spr_frog_idle_head","path":"sprites/spr_frog_idle_head/spr_frog_idle_head.yy",},},
+    {"id":{"name":"spr_frog_post_grip","path":"sprites/spr_frog_post_grip/spr_frog_post_grip.yy",},},
+    {"id":{"name":"spr_frog_pre_grip","path":"sprites/spr_frog_pre_grip/spr_frog_pre_grip.yy",},},
     {"id":{"name":"spr_frog_prehop_body","path":"sprites/spr_frog_prehop_body/spr_frog_prehop_body.yy",},},
     {"id":{"name":"spr_frog_prehop_head","path":"sprites/spr_frog_prehop_head/spr_frog_prehop_head.yy",},},
     {"id":{"name":"spr_frog_tongue_body","path":"sprites/spr_frog_tongue_body/spr_frog_tongue_body.yy",},},
