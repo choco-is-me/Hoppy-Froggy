@@ -1,28 +1,52 @@
 // Draw
 // Calculate head offset based on state and current body sprite
-var head_offset = -6; // Default for 7px height sprites (idle, hop)
+var head_offset = -6;
+// Default for 7px height sprites (idle, hop)
+
 if (state == "Charging" && current_body_sprite == spr_frog_prehop_body) {
-    head_offset = -4; // For prehop with shorter sprite
+    head_offset = -4;
+// For prehop with shorter sprite
 } else if (current_body_sprite == spr_frog_idle_body || current_body_sprite == spr_frog_hop_body) {
-    head_offset = -6; // For 7px height sprites
+    head_offset = -6;
+// For 7px height sprites
 } else if (state == "Attack") {
-    head_offset = -6; // For attack sprites - adjust as needed based on your sprites
+    head_offset = -6;
+// For attack sprites - adjust as needed based on your sprites
 } else if (state == "Damaged") {
-    head_offset = -7; // For damaged sprite - 10px height head on 7px body
+    head_offset = -7;
+// For damaged sprite - 10px height head on 7px body
 } else if (state == "Dead") {
-    head_offset = -8; // For dead sprite - 9px height head on 7px body
+    head_offset = -8;
+// For dead sprite - 9px height head on 7px body
+} else if (state == "WallSlide") {
+    // New Wall Slide Sprites
+    // Adjust these values based on your specific sprite art
+    if (current_body_sprite == spr_frog_pre_grip) {
+        head_offset = -5; // Example offset for grip start
+    } else {
+        head_offset = -6; // Example offset for idle grip
+    }
 }
 
-// Draw frog body and head with alpha for death fade, flipping based on 'facing'
+// Calculate the visual facing direction
+var draw_facing = facing;
+
+// If we are wall sliding, flip the sprite to face away from the wall
+if (state == "WallSlide") {
+    draw_facing = -facing;
+}
+
+// Draw frog body and head using 'draw_facing' instead of 'facing'
 if (sprite_exists(current_body_sprite)) {
-    draw_sprite_ext(current_body_sprite, image_index, x, y, facing, 1, 0, c_white, death_alpha);
+    draw_sprite_ext(current_body_sprite, image_index, x, y, draw_facing, 1, 0, c_white, death_alpha);
 }
 if (sprite_exists(current_head_sprite)) {
-    draw_sprite_ext(current_head_sprite, image_index, x, y + head_offset, facing, 1, 0, c_white, death_alpha);
+    draw_sprite_ext(current_head_sprite, image_index, x, y + head_offset, draw_facing, 1, 0, c_white, death_alpha);
 }
 
-// Draw oscillating arrow (not during damaged or dead state)
-if (state != "Attack" && state != "Damaged" && state != "Dead") {
+// Draw oscillating arrow (not during damaged, dead, or wall slide state)
+// Note: We hide arrow during wall slide as direction is locked until jump
+if (state != "Attack" && state != "Damaged" && state != "Dead" && state != "WallSlide") {
     var arrow_x = x + lengthdir_x(arrow_distance, arrow_angle);
     var arrow_y = y + lengthdir_y(arrow_distance, arrow_angle);
     
@@ -34,7 +58,7 @@ if (state != "Attack" && state != "Damaged" && state != "Dead") {
 // Draw tongue if active
 if (tongue_active && state == "Attack") {
     // Calculate tongue origin position at the frog's mouth
-    var tongue_origin_x = x + facing * 0.5; 
+    var tongue_origin_x = x + facing * 0.5;
     var tongue_origin_y = y + head_offset - 3.5; 
     
     // Calculate tongue body direction and length

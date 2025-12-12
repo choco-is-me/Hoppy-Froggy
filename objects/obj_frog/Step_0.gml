@@ -1,14 +1,11 @@
 // Step
 get_controls();
 //show_debug_message("State: " + state + ", HSP: " + string(hsp) + ", VSP: " + string(vsp) + ", Facing: " + string(facing) + ", HP: " + string(hp));
-
 // Check if player is on ground (used for multiple state checks)
 var on_ground = place_meeting(x, y + 1, obj_platform);
-
 // Health bar transition animation handling
 if (health_transition_active) {
     health_transition_progress += health_transition_speed;
-    
     if (health_transition_progress >= 1) {
         // Transition completed
         health_transition_active = false;
@@ -21,9 +18,8 @@ if (health_transition_active) {
 }
 
 // Update arrow oscillation (will be active in most non-damaged states)
-if (state != "Attack" && state != "Damaged" && state != "Dead") {
+if (state != "Attack" && state != "Damaged" && state != "Dead" && state != "WallSlide") {
     arrow_angle += arrow_speed * arrow_direction;
-    
     // Switch direction at boundaries
     if (arrow_angle >= arrow_max_angle) {
         arrow_angle = arrow_max_angle;
@@ -47,7 +43,6 @@ switch (state) {
         audio_enemy_hit_played = false;
         audio_charging_max_reached = false;
         audio_attack_played = false;
-        
         // Make sure charging sound is stopped
         if (audio_charging_playing) {
             audio_stop_sound(audio_charging);
@@ -65,7 +60,6 @@ switch (state) {
             state = "Charging";
             image_index = 0; // Start pre-hop animation
             jump_charge = 0;
-            
             // Start charging sound when entering charging state
             audio_charging = audio_play_sound(snd_frog_charging, 5, false);
             audio_charging_playing = true;
@@ -80,7 +74,6 @@ switch (state) {
             tongue_angle = arrow_angle;
             tongue_length = 0;
             tongue_retracting = false;
-            
             // Play attack sound immediately when attack starts
             audio_play_sound(snd_frog_attack, 6, false);
             audio_attack_played = true;
@@ -94,11 +87,9 @@ switch (state) {
             var tongue_dir_y = lengthdir_y(1, tongue_angle);
         }
         break;
-
     case "Charging":
         current_body_sprite = spr_frog_prehop_body;
         current_head_sprite = spr_frog_prehop_head;
-
         // Determine facing direction
         if (key_left_hold) {
             facing = -1;
@@ -122,12 +113,10 @@ switch (state) {
         }
         else if (key_space_held) {
             jump_charge += charge_rate;
-            
             // Improved charging sound management
             if (jump_charge < jump_charge_max) {
                 // Calculate charge percentage
                 var charge_percent = jump_charge / jump_charge_max;
-                
                 // Check if we need to play or replay the charging sound
                 if (!audio_charging_playing || !audio_is_playing(audio_charging)) {
                     // If sound was playing but stopped, clean up
@@ -160,16 +149,19 @@ switch (state) {
                 jump_charge = jump_charge_max;
                 image_speed = 0; // Freeze animation on last frame
                 if (sprite_exists(current_body_sprite)) {
-                    image_index = 1; // Explicitly set to the last frame (frame 1)
+                    image_index = 1;
+                    // Explicitly set to the last frame (frame 1)
                 }
             } else {
                 // For better control of the animation during charging:
                 if (jump_charge < jump_charge_max * 0.5) {
                     image_index = 0; // Use first frame for first half of charging
                 } else {
-                    image_index = 1; // Use second frame for second half of charging
+                    image_index = 1;
+                    // Use second frame for second half of charging
                 }
-                image_speed = 0; // Manually control animation instead of letting it play
+                image_speed = 0;
+                // Manually control animation instead of letting it play
             }
         }
 
@@ -193,7 +185,6 @@ switch (state) {
 
                 // Calculate vertical jump power
                 vsp = -(jump_charge / jump_charge_max) * base_jump_power_vertical;
-
                 // Determine horizontal jump direction and speed
                 var jump_h_direction = 0;
                 if (key_left_hold) { // Prioritize currently held keys for jump direction
@@ -204,7 +195,6 @@ switch (state) {
                     jump_h_direction = facing;
                 }
                 hsp = jump_h_direction * base_jump_power_horizontal;
-                
                 // Ensure facing is updated if jump direction was based on keys
                 if (jump_h_direction != 0) {
                     facing = jump_h_direction;
@@ -217,24 +207,154 @@ switch (state) {
             }
         }
         break;
-
     case "Jumping":
         current_body_sprite = spr_frog_hop_body;
         current_head_sprite = spr_frog_hop_head;
-        image_speed = 0; // Use a single frame for hop animation
+        image_speed = 0;
+        // Use a single frame for hop animation
         break;
         
+    case "WallSlide":
+        // 1. Sprite Animation Logic
+        // If we are still playing the "pre-grip" (landing on wall) animation
+        if (current_body_sprite == spr_frog_pre_grip) {
+            image_speed = 1; // Play animation
+            // If animation finishes, switch to idle loop
+            if (image_index >= image_number - 1) {
+                current_body_sprite = spr_frog_idle_grip;
+                image_index = 0;
+            }
+        } else {
+            // Already in idle grip
+            current_body_sprite = spr_frog_idle_grip;
+            image_speed = 1;
+        }
+        
+        // Head follows body (logic in Draw event handles position, just set sprite here)
+        // You might want a specific head for wall sliding, defaulting to idle or hop for now
+        current_head_sprite = spr_frog_idle_head; 
+
+        // 2. Check Conditions to Exit State
+        
+        // A. Landed on ground
+        if (on_ground) {
+            state = "Idle";
+            jump_charge = 0;
+            exit; // Stop processing WallSlide logic
+        }
+        
+        // B. Wall no longer exists in front of us (fell off the bottom of the wall)
+        if (!place_meeting(x + facing, y, obj_platform)) {
+            state = "Jumping";
+            jump_charge = 0;
+            // Retain current hsp/vsp (physics will take over)
+            exit;
+        }
+
+        // 3. Wall Charge Logic
+        if (key_space_pressed) {
+            jump_charge = 0;
+             // Start charging sound
+            audio_charging = audio_play_sound(snd_frog_charging, 5, false);
+            audio_charging_playing = true;
+            audio_sound_set_track_position(audio_charging, 0);
+        }
+
+        if (key_space_held) {
+            // CHARGING BEHAVIOR
+            jump_charge += charge_rate;
+            
+            // Stick to wall perfectly while charging
+            vsp = 0; 
+            hsp = 0; 
+            image_speed = 0; // Freeze animation while focusing on charge
+
+            // Audio Logic (Same as normal charging)
+            if (jump_charge < jump_charge_max) {
+                var charge_percent = jump_charge / jump_charge_max;
+                if (!audio_charging_playing || !audio_is_playing(audio_charging)) {
+                     if (audio_charging_playing) audio_charging_playing = false;
+                     audio_charging = audio_play_sound(snd_frog_charging, 5, false);
+                     audio_charging_playing = true;
+                     var target_position = min(charge_percent * audio_charging_length, audio_charging_length - 0.1);
+                     audio_sound_set_track_position(audio_charging, target_position);
+                }
+            } else if (jump_charge >= jump_charge_max && !audio_charging_max_reached) {
+                 jump_charge = jump_charge_max;
+                 audio_charging_max_reached = true;
+                 if (audio_charging_playing) {
+                     audio_stop_sound(audio_charging);
+                     audio_charging_playing = false;
+                 }
+            }
+        } 
+        else if (key_space_released) {
+            // JUMP EXECUTION
+            state = "Jumping";
+            
+            // Stop sound
+            if (audio_charging_playing) {
+                audio_stop_sound(audio_charging);
+                audio_charging_playing = false;
+            }
+            audio_play_sound(snd_frog_jump, 6, false);
+
+            var charge_percent = jump_charge / jump_charge_max;
+            
+            // Calculate Launch Vector
+            // Jump AWAY from the wall (Opposite to facing)
+            // If user holds NO direction or TOWARDS wall: Jump slightly away
+            // If user holds AWAY from wall: Jump strongly away
+            
+            var jump_dir_h = -facing; // Default away from wall
+            
+            // Calculate power
+            // Vertical: Always jump up
+            vsp = -base_jump_power_vertical * charge_percent;
+            
+            // Horizontal:
+            hsp = jump_dir_h * base_jump_power_horizontal;
+            
+            // If the charge was very weak (just a tap), maybe cancel slide with a small hop
+            if (charge_percent < 0.2) {
+                 vsp = -4; 
+                 hsp = jump_dir_h * 2;
+            }
+            
+            // Face the direction we jumped
+            facing = jump_dir_h;
+            
+            jump_charge = 0;
+            audio_jump_played = true; // Prevent double sound
+        } 
+        else {
+            // SLIDING BEHAVIOR (No Space Held)
+            // Apply wall friction (slide down slowly)
+            // If vsp is negative (moving up from a previous jump), let gravity pull it down
+            // If vsp is positive (falling), clamp it to slide speed
+            
+            if (vsp < wall_slide_speed) {
+                vsp += gravity_val;
+            } else {
+                vsp = wall_slide_speed;
+            }
+            
+            // Allow jumping off immediately if just tapped, 
+            // but logic is handled by space_released.
+        }
+        break;
+
     case "Attack":
         current_body_sprite = spr_frog_attack_body;
         current_head_sprite = spr_frog_attack_head;
-        image_speed = 0; // We use a single frame for attack animation
+        image_speed = 0;
+        // We use a single frame for attack animation
         
         // Handle tongue extension and retraction
         if (tongue_active) {
             if (!tongue_retracting) {
                 // Extending the tongue
                 tongue_length += tongue_speed;
-                
                 // Check if tongue has reached maximum length
                 if (tongue_length >= tongue_max_length) {
                     tongue_retracting = true;
@@ -243,7 +363,8 @@ switch (state) {
                 // Check for enemy collision with tongue head
                 if (tongue_active && !tongue_retracting) {
                     // Calculate head offset here just like in the Draw event
-                    var head_offset = -6; // Default for attack sprites
+                    var head_offset = -6;
+                    // Default for attack sprites
                     
                     // Recalculate tongue origin position
                     var tongue_origin_x = x + facing * 0.5;
@@ -259,7 +380,6 @@ switch (state) {
                     
                     // Use the parent object instead of specific enemy types
                     var enemy = collision_circle(tongue_head_x, tongue_head_y, 5, obj_all_enemies, false, true);
-                    
                     if (enemy != noone) {
                         // Deal damage to enemy
                         with (enemy) {
@@ -272,13 +392,13 @@ switch (state) {
                             audio_enemy_hit_played = true;
                         }
                         
-                        tongue_retracting = true; // Start retracting after hitting enemy
+                        tongue_retracting = true;
+                        // Start retracting after hitting enemy
                     }
                 }
             } else {
                 // Retracting the tongue
                 tongue_length -= tongue_speed;
-                
                 // Check if tongue has fully retracted
                 if (tongue_length <= 0) {
                     tongue_active = false;
@@ -294,7 +414,6 @@ switch (state) {
             }
         }
         break;
-        
     case "Damaged":
         // Play hit/damage sound once when entering damaged state
         if (!audio_hit_played) {
@@ -309,22 +428,22 @@ switch (state) {
         // Control animation frame manually
         damaged_timer++;
         if (damaged_timer % damaged_frame_speed == 0) {
-            damaged_frame = !damaged_frame; // Toggle between 0 and 1
+            damaged_frame = !damaged_frame;
+            // Toggle between 0 and 1
         }
         
         image_index = damaged_frame;
-        
         // Exit damaged state after animation completes
         if (damaged_timer >= damaged_duration) {
             damaged_timer = 0;
-            
             // Explicitly reset any possible momentum before changing states
             hsp = 0;
             vsp = 0;
             
             // Return to appropriate state based on grounding
             if (hp <= 0) {
-                state = "Dead"; // If no health left, transition to dead state
+                state = "Dead";
+                // If no health left, transition to dead state
             } else if (on_ground) {
                 state = "Idle";
             } else {
@@ -334,7 +453,6 @@ switch (state) {
         
         // No player control during damaged state
         break;
-        
     case "Dead":
         // Play death sound once when entering dead state
         if (!audio_dead_played) {
@@ -371,10 +489,14 @@ switch (state) {
 // --- Physics and Movement (applied after state logic) ---
 
 // Only apply gravity and movement physics when not attacking, damaged, or dead
+// NOTE: We allow physics in WallSlide, but WallSlide manages its own VSP friction
 if (state != "Attack" && state != "Damaged" && state != "Dead") {
-    // Apply Gravity
-    if (!on_ground || vsp < 0 || state == "Jumping") {
-        vsp += gravity_val;
+    
+    // Apply Gravity (Skip for WallSlide as it handles its own slide speed)
+    if (state != "WallSlide") {
+        if (!on_ground || vsp < 0 || state == "Jumping") {
+            vsp += gravity_val;
+        }
     }
 
     // Vertical Collision and Movement
@@ -382,23 +504,48 @@ if (state != "Attack" && state != "Damaged" && state != "Dead") {
         while (!place_meeting(x, y + sign(vsp), obj_platform)) {
             y += sign(vsp);
         }
-        if (vsp > 0 && state == "Jumping") {
+        if (vsp > 0 && (state == "Jumping" || state == "WallSlide")) {
             state = "Idle";
             image_index = 0;
             hsp = 0; // Stop horizontal movement on landing
         }
-        vsp = 0; // Stop vertical movement
+        vsp = 0;
+        // Stop vertical movement
     }
-    y += vsp; // Apply final vertical movement
+    y += vsp;
+    // Apply final vertical movement
 
     // Horizontal Collision and Movement
+    // WALL COLLISION LOGIC CHANGED HERE
     if (hsp != 0) {
         if (place_meeting(x + hsp, y, obj_platform)) {
+            
+            // Move to contact
             while (!place_meeting(x + sign(hsp), y, obj_platform)) {
                 x += sign(hsp);
             }
-            hsp = -hsp * 0.5; // Reverse horizontal speed at 50% on collision (bounce-back)
+            
+            // CHECK FOR WALL SLIDE ENTRY
+            // If we are in the air and hit a wall, enter Wall Slide
+            if (!on_ground && state != "WallSlide") {
+                state = "WallSlide";
+                // Lock facing towards the wall we hit
+                facing = sign(hsp); 
+                hsp = 0;
+                vsp = 0; // Reset vertical speed to catch the wall
+                jump_charge = 0; // Reset any charge
+                
+                // Set initial sprites
+                current_body_sprite = spr_frog_pre_grip;
+                image_index = 0;
+            } 
+            else {
+                // Standard collision stop (or bounce removal)
+                hsp = 0; 
+                // Removed the bounce behavior: hsp = -hsp * 0.5;
+            }
         }
-        x += hsp; // Apply final horizontal movement
+        x += hsp;
+        // Apply final horizontal movement
     }
 }
